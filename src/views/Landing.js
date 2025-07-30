@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import extractdoc from '../assets/ahakyr/extractdoc.png'
 // components
 
 import Navbar from "components/Navbars/AuthNavbar.js";
@@ -111,7 +111,7 @@ export default function Landing() {
 
             <div className="container mx-auto mt-32 md:mt-0">
               <div className="flex flex-wrap items-center">
-                <div className="w-full md:w-6/12 lg:w-5/12 lg:h-2/4 px-12 md:px-4 mr-auto ml-auto -mt-32">
+                <div className="w-full md:w-6/12 lg:w-5/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                     <img
                       alt="..."
@@ -294,6 +294,7 @@ export default function Landing() {
           </div>
         </section>
 
+        {/* Why Choose Ahakyr */}
         <section className="relative py-20">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
@@ -396,163 +397,158 @@ export default function Landing() {
           </div>
         </section>
 
+        {/* Featured Product */}
+        <div className="container mx-auto px-4 pb-32 pt-12">
+          <div className="items-center flex flex-wrap">
+            <div className="w-full md:w-5/12 ml-auto px-12 md:px-4">
+              <div className="md:pr-12">
+                <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                  <i className="fas fa-file-alt text-xl"></i>
+                </div>
+                <h3 className="text-3xl font-bold">
+                  Featured Product
+                </h3>
+                <h4 className="text-3xl font-semibold  mt-6">ExtractDoc.ai</h4>
+                <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
+                  Quickly convert documents (invoices, PDFs, forms, webpages) into structured, actionable data using our AI-powered platform.
+                </p>
+                <ul className="list-none mt-6">
+                  <li className="py-2">
+                    <div className="flex items-center">
+                      <div>
+                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
+                          <i className="fas fa-fingerprint"></i>
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="text-blueGray-500">
+                          Efficient
+                        </h4>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="py-2">
+                    <div className="flex items-center">
+                      <div>
+                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
+                          <i className="fab fa-html5"></i>
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="text-blueGray-500">
+                          Accurate
+                        </h4>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="py-2">
+                    <div className="flex items-center">
+                      <div>
+                        <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-blueGray-50 mr-3">
+                          <i className="far fa-paper-plane"></i>
+                        </span>
+                      </div>
+                      <div>
+                        <h4 className="text-blueGray-500">
+                          Scalable
+                        </h4>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
+              <img
+                alt="..."
+                className="max-w-full rounded-lg shadow-xl"
+                style={{
+                  transform:
+                    "scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg)",
+                }}
+                src={extractdoc}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonial */}
         <section className="pt-20 pb-48">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
               <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold">Here are our heroes</h2>
+                <h2 className="text-4xl font-semibold">Trusted Success Stories</h2>
                 <p className="text-lg leading-relaxed m-4 text-blueGray-500">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record maximum.
+                  Hear from some of our satisfied clients who’ve partnered with us.
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+            <div className="flex flex-wrap justify-center">
+              {/* Testimonial 1 */}
+              <div className="w-full md:w-4/12 lg:mb-0 mb-12 px-4">
                 <div className="px-6">
                   <img
-                    alt="..."
-                    src={require("assets/img/team-1-800x800.jpg").default}
+                    alt="Client testimonial"
+                    src="https://randomuser.me/api/portraits/men/32.jpg"
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Ryan Tompson</h5>
+                    <h5 className="text-xl font-bold">Alex Smith</h5>
                     <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Web Developer
+                      CEO, TechCorp Inc.
                     </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </button>
-                      <button
-                        className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-dribbble"></i>
-                      </button>
-                    </div>
+                    <p className="mt-2 text-blueGray-500">
+                      “Ahakyr delivered our corporate portal ahead of schedule with excellent support throughout. Highly recommend!”
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+
+              {/* Testimonial 2 */}
+              <div className="w-full md:w-4/12 lg:mb-0 mb-12 px-4">
                 <div className="px-6">
                   <img
-                    alt="..."
-                    src={require("assets/img/team-2-800x800.jpg").default}
+                    alt="Client testimonial"
+                    src="https://randomuser.me/api/portraits/women/44.jpg"
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Romina Hadid</h5>
+                    <h5 className="text-xl font-bold">Maria Rodriguez</h5>
                     <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Marketing Specialist
+                      CTO, FinServe Solutions
                     </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-facebook-f"></i>
-                      </button>
-                    </div>
+                    <p className="mt-2 text-blueGray-500">
+                      “Their engineering and main‑frame expertise significantly improved team productivity and reduced bugs.”
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("assets/img/team-3-800x800.jpg").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Alexa Smith</h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      UI/UX Designer
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-instagram"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
-                <div className="px-6">
-                  <img
-                    alt="..."
-                    src={require("assets/img/team-4-470x470.png").default}
-                    className="shadow-lg rounded-full mx-auto max-w-120-px"
-                  />
-                  <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Jenna Kardi</h5>
-                    <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Founder and CEO
-                    </p>
-                    <div className="mt-6">
-                      <button
-                        className="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-dribbble"></i>
-                      </button>
-                      <button
-                        className="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-google"></i>
-                      </button>
-                      <button
-                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-twitter"></i>
-                      </button>
-                      <button
-                        className="bg-blueGray-700 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                      >
-                        <i className="fab fa-instagram"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+              {/* Testimonial 3 */}
+              {/* <div className="w-full md:w-4/12 lg:mb-0 mb-12 px-4">
+        <div className="px-6">
+          <img
+            alt="Client testimonial"
+            src="https://randomuser.me/api/portraits/men/68.jpg"
+            className="shadow-lg rounded-full mx-auto max-w-120-px"
+          />
+          <div className="pt-6 text-center">
+            <h5 className="text-xl font-bold">David Lee</h5>
+            <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
+              Project Head, SmartLogix
+            </p>
+            <p className="mt-2 text-blueGray-500">
+              “The collaboration with Ahakyr was seamless, and their timely delivery helped us meet a critical product launch.”
+            </p>
+          </div>
+        </div>
+      </div> */}
             </div>
           </div>
         </section>
 
+        {/* Get in touch */}
         <section className="pb-20 relative block bg-blueGray-800">
           <div
             className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
@@ -578,38 +574,36 @@ export default function Landing() {
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
-                  Build something
+                  Get in Touch
                 </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
-                  Put the potentially record low maximum sea ice extent tihs
-                  year down to low ice. According to the National Oceanic and
-                  Atmospheric Administration, Ted, Scambos.
+                  Ready to accelerate your tech roadmap with AI, automation, and SaaS?
+                  Contact us today for a free strategy session and tailored solutions for your business needs.
                 </p>
               </div>
             </div>
             <div className="flex flex-wrap mt-12 justify-center">
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <div className="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-                  <i className="fas fa-medal text-xl"></i>
+                  <i className="fas fa-poll text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
+                  Vision
                 </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Become the go-to AI and software solutions partner for US businesses.
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <div className="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
-                  <i className="fas fa-poll text-xl"></i>
+                  <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Grow your market
+                  Mission
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Deliver world-class software with unmatched quality, speed, and ethics.
+
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -617,11 +611,10 @@ export default function Landing() {
                   <i className="fas fa-lightbulb text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Launch time
+                  Values
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                  Innovation, Integrity, Collaboration, Customer-First.
                 </p>
               </div>
             </div>
