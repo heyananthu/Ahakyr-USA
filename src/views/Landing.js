@@ -109,9 +109,9 @@ export default function Landing() {
             </div>
 
 
-            <div className="container mx-auto mt-32">
+            <div className="container mx-auto mt-32 md:mt-0">
               <div className="flex flex-wrap items-center">
-                <div className="w-full md:w-6/12 lg:w-4/12 px-12 md:px-4 mr-auto ml-auto -mt-32">
+                <div className="w-full md:w-6/12 lg:w-5/12 lg:h-2/4 px-12 md:px-4 mr-auto ml-auto -mt-32">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                     <img
                       alt="..."
@@ -131,14 +131,14 @@ export default function Landing() {
                         ></polygon>
                       </svg>
                       <h4 className="text-xl font-bold text-white">
-                        Great for your awesome project
+                        Our Core Services
                       </h4>
-                      <p className="text-md font-light mt-2 text-white">
+                      {/* <p className="text-md font-light mt-2 text-white">
                         Putting together a page has never been easier than matching
                         together pre-made components. From landing pages
                         presentation to login areas, you can easily customise and
                         built your pages.
-                      </p>
+                      </p> */}
                     </blockquote>
                   </div>
                 </div>
@@ -149,28 +149,39 @@ export default function Landing() {
                       <div className="relative flex flex-col mt-4">
                         <div className="px-4 py-5 flex-auto">
                           <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                            <i className="fas fa-sitemap"></i>
+                            <i className="fas fa-mobile-alt"></i>
                           </div>
                           <h6 className="text-xl mb-1 font-semibold">
-                            CSS Components
+                            Custom Web & Mobile App Development
                           </h6>
                           <p className="mb-4 text-blueGray-500">
-                            Notus React comes with a huge number of Fully Coded CSS
-                            components.
+                            Tailored web and mobile apps using React.js, Angular, Vue.js, React Native, Flutter, and Next.js to bring your vision to life.
                           </p>
                         </div>
                       </div>
                       <div className="relative flex flex-col min-w-0">
                         <div className="px-4 py-5 flex-auto">
                           <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                            <i className="fas fa-drafting-compass"></i>
+                            <i className="fas fa-brain"></i>
                           </div>
                           <h6 className="text-xl mb-1 font-semibold">
-                            JavaScript Components
+                            Enterprise Software & AI/ML Integration
                           </h6>
                           <p className="mb-4 text-blueGray-500">
-                            We also feature many dynamic components for React,
-                            NextJS, Vue and Angular.
+                            Bespoke software solutions, AI & Machine Learning, IoT, Blockchain, and data analytics to automate workflows and drive smarter decisions.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="relative flex flex-col min-w-0">
+                        <div className="px-4 py-5 flex-auto">
+                          <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                            <i className="fas fa-cogs"></i>
+                          </div>
+                          <h6 className="text-xl mb-1 font-semibold">
+                            ERP Implementation & Consulting
+                          </h6>
+                          <p className="mb-4 text-blueGray-500">
+                            Expertise in Odoo, Microsoft Dynamics 365, Salesforce, Zoho, and more to transform your enterprise planning and operations.
                           </p>
                         </div>
                       </div>
@@ -179,26 +190,37 @@ export default function Landing() {
                       <div className="relative flex flex-col min-w-0 mt-4">
                         <div className="px-4 py-5 flex-auto">
                           <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                            <i className="fas fa-newspaper"></i>
+                            <i className="fas fa-cloud"></i>
                           </div>
-                          <h6 className="text-xl mb-1 font-semibold">Pages</h6>
+                          <h6 className="text-xl mb-1 font-semibold">IT Infrastructure & Cloud Services</h6>
                           <p className="mb-4 text-blueGray-500">
-                            This extension also comes with 3 sample pages. They are
-                            fully coded so you can start working instantly.
+                            Secure, scalable deployments using AWS, Azure, Google Cloud, DevOps, and automated testing tools like Selenium and JMeter.
                           </p>
                         </div>
                       </div>
                       <div className="relative flex flex-col min-w-0">
                         <div className="px-4 py-5 flex-auto">
                           <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                            <i className="fas fa-file-alt"></i>
+                            <i className="fas fa-headset"></i>
                           </div>
                           <h6 className="text-xl mb-1 font-semibold">
-                            Documentation
+                            Staff Augmentation & Call Center Solutions
                           </h6>
                           <p className="mb-4 text-blueGray-500">
-                            Built by developers for developers. You will love how
-                            easy is to to work with Notus React.
+                            US‑based talent and support in virtual assistance, technical support, lead generation, inbound/outbound sales, live chat & email after-hours support.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="relative flex flex-col min-w-0">
+                        <div className="px-4 py-5 flex-auto">
+                          <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
+                            <i className="fas fa-chart-line"></i>
+                          </div>
+                          <h6 className="text-xl mb-1 font-semibold">
+                            Data Services & Digital Marketing
+                          </h6>
+                          <p className="mb-4 text-blueGray-500">
+                            End‑to‑end solutions: data entry, annotation, mining, conversion, OCR plus SEO, social media and performance marketing.
                           </p>
                         </div>
                       </div>
@@ -206,6 +228,10 @@ export default function Landing() {
                   </div>
                 </div>
               </div>
+              <div>
+
+              </div>
+
             </div>
 
 
