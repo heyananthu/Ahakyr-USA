@@ -68,10 +68,9 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
                       <i className="fas fa-award"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Awarded Agency</h6>
+                    <h6 className="text-xl font-semibold">Vision</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+                      Become the go-to AI and software solutions partner for US businesses.
                     </p>
                   </div>
                 </div>
@@ -83,10 +82,9 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">Mission</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                      Deliver world-class software with unmatched quality, speed, and ethics.
                     </p>
                   </div>
                 </div>
@@ -98,10 +96,10 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <h6 className="text-xl font-semibold">Values</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                      Innovation, Integrity, Collaboration, Customer-First.
+
                     </p>
                   </div>
                 </div>
@@ -130,7 +128,7 @@ export default function Landing() {
                           className="text-lightBlue-500 fill-current"
                         ></polygon>
                       </svg>
-                      <h4 className="text-xl font-bold text-white">
+                      <h4 className="text-2xl font-bold text-white">
                         Our Core Services
                       </h4>
                       {/* <p className="text-md font-light mt-2 text-white">
@@ -473,6 +471,96 @@ export default function Landing() {
           </div>
         </div>
 
+        {/* Industries We Serve */}
+        <div className="container mx-auto mt-12 px-4">
+          <div className="flex flex-col md:flex-row md:justify-between items-start">
+
+            {/* LEFT - IMAGE CARD */}
+            <div className="w-full md:w-5/12 px-4 mb-10 md:mb-0">
+              <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded-lg bg-lightBlue-500">
+                <img
+                  alt="Industries"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                  className="w-full align-middle rounded-t-lg"
+                />
+                <blockquote className="relative p-8 mb-4">
+                  <svg
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 583 95"
+                    className="absolute left-0 w-full block h-95-px -top-94-px"
+                  >
+                    <polygon
+                      points="-30,95 583,95 583,65"
+                      className="text-lightBlue-500 fill-current"
+                    ></polygon>
+                  </svg>
+                  <h4 className="text-2xl font-bold text-white">
+                    Industries We Serve
+                  </h4>
+                </blockquote>
+              </div>
+            </div>
+
+            {/* RIGHT - INDUSTRY LIST */}
+            <div className="w-full md:w-6/12 px-4 mt-12">
+              <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
+                <i className="fas fa-industry text-xl"></i>
+              </div>
+
+              <div className="flex flex-wrap md:gap-x-4">
+                {/* LEFT COLUMN */}
+                <div className="md:w-1/2 pr-4">
+                  <ul className="space-y-6 text-blueGray-600 text-xl font-light leading-relaxed">
+                    <li className="flex items-start">
+                      <i className="fas fa-shopping-cart text-blue-500 mr-4 text-xl mt-1"></i>
+                      Retail & eCommerce
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-heartbeat text-red-500 mr-4 text-xl mt-1"></i>
+                      Healthcare
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-cogs text-yellow-500 mr-4 text-xl mt-1"></i>
+                      Manufacturing
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-truck text-green-500 mr-4 text-xl mt-1"></i>
+                      Logistics
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-hashtag text-purple-500 mr-4 text-xl mt-1"></i>
+                      Social Media
+                    </li>
+                  </ul>
+                </div>
+
+                {/* RIGHT COLUMN */}
+                <div className="md:w-1/2 md:pl-4">
+                  <ul className="space-y-6 text-blueGray-600 text-xl font-light leading-relaxed">
+                    <li className="flex items-start">
+                      <i className="fas fa-user-tie text-indigo-500 mr-4 text-xl mt-1"></i>
+                      HR & Recruiting
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-hard-hat text-orange-500 mr-4 text-xl mt-1"></i>
+                      Construction
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-university text-cyan-500 mr-4 text-xl mt-1"></i>
+                      Finance
+                    </li>
+                    <li className="flex items-start">
+                      <i className="fas fa-hotel text-pink-500 mr-4 text-xl mt-1"></i>
+                      Hospitality
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Testimonial */}
         <section className="pt-20 pb-48">
           <div className="container mx-auto px-4">
@@ -582,7 +670,7 @@ export default function Landing() {
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap mt-12 justify-center">
+            {/* <div className="flex flex-wrap mt-12 justify-center">
               <div className="w-full lg:w-3/12 px-4 text-center">
                 <div className="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center">
                   <i className="fas fa-poll text-xl"></i>
@@ -617,7 +705,7 @@ export default function Landing() {
                   Innovation, Integrity, Collaboration, Customer-First.
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
         <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
