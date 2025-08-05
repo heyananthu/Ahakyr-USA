@@ -2,22 +2,11 @@ const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: {
-    enabled: true,
-    content: [
-      "./public/**/*.html",
-      "./public/*.html",
-      "./src/**/*.js",
-      "./src/*.js",
-      "./src/**/*.html",
-      "./src/*.html",
-      "./public/**/*.js",
-      "./public/*.js",
-    ],
-    options: {
-      safelist: [],
-    },
-  },
+  purge: [
+    "./public/**/*.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+  darkMode: false,
   theme: {
     colors: {
       ...colors,
@@ -79,22 +68,30 @@ module.exports = {
       backgroundSize: {
         full: "100%",
       },
+      gridTemplateColumns: {
+        '13': 'repeat(13, minmax(0, 1fr))',
+        '14': 'repeat(14, minmax(0, 1fr))',
+        '15': 'repeat(15, minmax(0, 1fr))',
+        '16': 'repeat(16, minmax(0, 1fr))',
+      }
     },
   },
-  variants: [
-    "responsive",
-    "group-hover",
-    "focus-within",
-    "first",
-    "last",
-    "odd",
-    "even",
-    "hover",
-    "focus",
-    "active",
-    "visited",
-    "disabled",
-  ],
+  variants: {
+    extend: {
+      display: ['responsive'],
+      gridTemplateColumns: ['responsive'],
+      gridColumn: ['responsive'],
+      gridColumnStart: ['responsive'],
+      gridColumnEnd: ['responsive'],
+      gridTemplateRows: ['responsive'],
+      gridRow: ['responsive'],
+      gridRowStart: ['responsive'],
+      gridRowEnd: ['responsive'],
+      gap: ['responsive'],
+      transform: ['responsive', 'hover', 'focus', 'group-hover'],
+      scale: ['responsive', 'hover', 'focus', 'group-hover'],
+    },
+  },
   plugins: [
     require("@tailwindcss/forms"),
     plugin(function ({ addComponents, theme }) {

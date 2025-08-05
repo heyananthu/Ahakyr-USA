@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import extractdoc from '../assets/ahakyr/extractdoc.png'
-// components
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
@@ -28,10 +27,10 @@ export default function Landing() {
             <div className="items-center flex flex-wrap">
               <div className="w-full lg:w-8/12 px-4 ml-auto mr-auto text-center">
                 <div className="md:pr-12 mt-12 md:mt-1">
-                  <h1 className="text-white font-semibold text-3xl md:text-6xl">
+                  <h1 className="text-white font-semibold text-3xl md:text-5xl">
                     AI‑Powered Software & Business Solutions in the USA
                   </h1>
-                  <p className="mt-4 text-lg text-blueGray-200">
+                  <p className="mt-4 text-sm  md:text-lg text-blueGray-200">
                     Elevate your US business with Ahakyr’s cutting-edge AI solutions, software services, and product innovations. Turn ideas into reality today.
                   </p>
                 </div>
@@ -107,9 +106,9 @@ export default function Landing() {
             </div>
 
 
-            <div className="container mx-auto mt-32 md:mt-0">
+            <div className="container mx-auto mt-12 md:mt-0">
               <div className="flex flex-wrap items-center">
-                
+
 
                 <div className="w-full md:w-6/12 px-4 ">
                   <div className="flex flex-wrap">
@@ -196,7 +195,7 @@ export default function Landing() {
                   </div>
                 </div>
 
-                <div className="w-full md:w-6/12 lg:w-5/12 px-12 md:px-4 mr-auto ml-auto -mt-12">
+                <div className="w-full md:w-6/12 lg:w-5/12 px-12 md:px-4 mr-auto ml-auto -mt-1">
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                     <img
                       alt="..."
@@ -325,7 +324,7 @@ export default function Landing() {
                   src="https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
                 />
               </div>
-              <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
+              <div className="w-full md:w-5/12 ml-auto mr-auto px-4 mt-2">
                 <div className="md:pr-12">
                   <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
@@ -474,94 +473,74 @@ export default function Landing() {
         </div>
 
         {/* Industries We Serve */}
-        <div className="container mx-auto mt-12 px-4">
-          <div className="flex flex-col md:flex-row md:justify-between items-start">
-
-            {/* LEFT - IMAGE CARD */}
-            <div className="w-full md:w-5/12 px-4 mb-10 md:mb-0">
-              <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded-lg bg-lightBlue-500">
-                <img
-                  alt="Industries"
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
-                  className="w-full align-middle rounded-t-lg"
-                />
-                <blockquote className="relative p-8 mb-4">
-                  <svg
-                    preserveAspectRatio="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 583 95"
-                    className="absolute left-0 w-full block h-95-px -top-94-px"
-                  >
-                    <polygon
-                      points="-30,95 583,95 583,65"
-                      className="text-lightBlue-500 fill-current"
-                    ></polygon>
-                  </svg>
-                  <h4 className="text-2xl font-bold text-white">
-                    Industries We Serve
-                  </h4>
-                </blockquote>
-              </div>
+        <section className="py-20 bg-gray-50 mb-12">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">Industries We Serve</h2>
             </div>
 
-            {/* RIGHT - INDUSTRY LIST */}
-            <div className="w-full md:w-6/12 px-4 mt-12">
-              <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
-                <i className="fas fa-industry text-xl"></i>
-              </div>
-
-              <div className="flex flex-wrap md:gap-x-4">
-                {/* LEFT COLUMN */}
-                <div className="md:w-1/2 pr-4">
-                  <ul className="space-y-6 text-blueGray-600 text-xl font-light leading-relaxed">
-                    <li className="flex items-start">
-                      <i className="fas fa-shopping-cart text-blue-500 mr-4 text-xl mt-1"></i>
-                      Retail & eCommerce
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-heartbeat text-red-500 mr-4 text-xl mt-1"></i>
-                      Healthcare
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-cogs text-yellow-500 mr-4 text-xl mt-1"></i>
-                      Manufacturing
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-truck text-green-500 mr-4 text-xl mt-1"></i>
-                      Logistics
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-hashtag text-purple-500 mr-4 text-xl mt-1"></i>
-                      Social Media
-                    </li>
-                  </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
+              {[
+                {
+                  icon: "fa-shopping-cart",
+                  color: "bg-emerald-500",
+                  title: "Retail & eCommerce",
+                },
+                {
+                  icon: "fa-heartbeat",
+                  color: "bg-red-500",
+                  title: "Healthcare",
+                },
+                {
+                  icon: "fa-cogs",
+                  color: "bg-purple-500",
+                  title: "Manufacturing",
+                },
+                {
+                  icon: "fa-shipping-fast",
+                  color: "bg-blue-500",
+                  title: "Logistics",
+                },
+                {
+                  icon: "fa-share-alt",
+                  color: "bg-pink-500",
+                  title: "Social Media",
+                },
+                {
+                  icon: "fa-users",
+                  color: "bg-indigo-500",
+                  title: "HR & Recruiting",
+                },
+                {
+                  icon: "fa-building",
+                  color: "bg-orange-500",
+                  title: "Construction",
+                },
+                {
+                  icon: "fa-chart-line",
+                  color: "bg-green-600",
+                  title: "Finance",
+                },
+                {
+                  icon: "fa-coffee",
+                  color: "bg-teal-500",
+                  title: "Hospitality",
+                },
+              ].map((industry, index) => (
+                <div key={index} className="flex justify-center">
+                  <div className="bg-white rounded-xl shadow-lg p-6 text-center w-full max-w-sm transform transition duration-300 hover:scale-105 hover:shadow-xl group">
+                    <div className={`${industry.color} text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <i className={`fas ${industry.icon} text-xl`}></i>
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-800 mb-2">{industry.title}</h3>
+                  </div>
                 </div>
-
-                {/* RIGHT COLUMN */}
-                <div className="md:w-1/2 md:pl-4">
-                  <ul className="space-y-6 text-blueGray-600 text-xl font-light leading-relaxed">
-                    <li className="flex items-start">
-                      <i className="fas fa-user-tie text-indigo-500 mr-4 text-xl mt-1"></i>
-                      HR & Recruiting
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-hard-hat text-orange-500 mr-4 text-xl mt-1"></i>
-                      Construction
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-university text-cyan-500 mr-4 text-xl mt-1"></i>
-                      Finance
-                    </li>
-                    <li className="flex items-start">
-                      <i className="fas fa-hotel text-pink-500 mr-4 text-xl mt-1"></i>
-                      Hospitality
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              ))}
             </div>
+
+           
           </div>
-        </div>
+        </section>
 
         {/* Testimonial */}
         <section className="pt-20 pb-48">

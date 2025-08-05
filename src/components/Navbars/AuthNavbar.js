@@ -7,7 +7,7 @@ export default function Navbar(props) {
 
   const menuItems = [
     { name: "Home", path: "/", icon: "fas fa-home" },
-    { name: "About", path: "/about", icon: "fas fa-info-circle" },
+    { name: "About", path: "/about-us", icon: "fas fa-info-circle" },
     { name: "Services", path: "/services", icon: "fas fa-cogs" },
     { name: "Blog", path: "/blog", icon: "fas fa-blog" },
     { name: "Contact Us", path: "/contact", icon: "fas fa-envelope" },
