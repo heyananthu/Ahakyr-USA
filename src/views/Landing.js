@@ -108,8 +108,6 @@ export default function Landing() {
 
             <div className="container mx-auto mt-12 md:mt-0">
               <div className="flex flex-wrap items-center">
-
-
                 <div className="w-full md:w-6/12 px-4 ">
                   <div className="flex flex-wrap">
                     <div className="w-full md:w-6/12 px-4">
@@ -461,7 +459,7 @@ export default function Landing() {
             <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
               <img
                 alt="..."
-                className="max-w-full rounded-lg shadow-xl"
+                className="w-full md:h-80 rounded-lg shadow-xl object-cover"
                 style={{
                   transform:
                     "scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg)",
@@ -538,7 +536,7 @@ export default function Landing() {
               ))}
             </div>
 
-           
+
           </div>
         </section>
 
