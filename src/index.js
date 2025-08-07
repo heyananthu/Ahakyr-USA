@@ -17,6 +17,7 @@ import About from 'views/About'
 import Service from 'views/Service'
 import StaffAugmentation from "pages/Service/StaffAugmentation";
 import DataServices from "pages/Service/DataServices";
+import CallCenterServices from "pages/Service/CallCenterServices";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path="/services" exact component={Service} />
       <Route path="/staff-augmentation" exact component={StaffAugmentation} />
       <Route path="/data-services" exact component={DataServices} />
+      <Route path="/call-center-services" exact component={CallCenterServices} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>,

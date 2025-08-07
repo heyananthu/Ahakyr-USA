@@ -245,6 +245,15 @@ export default function Navbar(props) {
                             </div>
                           </div>
                         </div>
+                        {/* Call Center */}
+                        <Link
+                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                          to="/call-center-services"
+                          onClick={handleMobileMenuClick}
+                        >
+                          <i className="fas fa-phone mr-3 text-green-400"></i>
+                          Call Center Services
+                        </Link>
                       </div>
                     </div>
                   ) : (
