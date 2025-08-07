@@ -183,9 +183,9 @@ export default function StaffAugmentation() {
                         <div className="container mx-auto mt-20">
                             <div className="text-center mb-16">
                                 <h2 className="text-3xl md:text-5xl font-bold text-blueGray-800 mb-4">Types of Staff Augmentation Models</h2>
-                                <p className="text-sm md:text-lg text-blueGray-600 max-w-3xl mx-auto">
+                                {/* <p className="text-sm md:text-lg text-blueGray-600 max-w-3xl mx-auto">
                                     Flexible engagement models designed to meet your specific project and business needs
-                                </p>
+                                </p> */}
                             </div>
 
                             {/* Models Grid */}
@@ -238,9 +238,9 @@ export default function StaffAugmentation() {
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6">How It Works: Our Augmentation Process</h2>
-                            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                                 Our proven methodology ensures successful team augmentation with minimal disruption and maximum results
-                            </p>
+                            </p> */}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
@@ -319,9 +319,9 @@ export default function StaffAugmentation() {
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-6">Who Benefits from Our Services</h2>
-                            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+                            {/* <p className="text-lg text-gray-600 max-w-4xl mx-auto">
                                 Organizations across industries leverage our staff augmentation services to achieve their goals
-                            </p>
+                            </p> */}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
@@ -331,13 +331,15 @@ export default function StaffAugmentation() {
                                 { icon: "fa-digital-tachograph", title: "Organizations", description: "Implementing digital transformations using emerging tech", color: "bg-purple-500" },
                                 { icon: "fa-rocket", title: "Clients", description: "Needing immediate scale-up for urgent deliverables", color: "bg-orange-500" }
                             ].map((benefit, index) => (
-                                <div key={index} className="text-center group">
-                                    <div className="bg-gray-100 rounded-2xl p-8 transform transition duration-300 hover:scale-105 hover:shadow-lg group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-purple-50">
-                                        <div className={`${benefit.color} text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 transform transition duration-300 group-hover:scale-110`}>
-                                            <i className={`fas ${benefit.icon} text-xl`}></i>
+                                <div key={index} className="text-center group h-full">
+                                    <div className="bg-gray-100 rounded-2xl p-6 h-64 flex flex-col transform transition duration-300 hover:scale-105 hover:shadow-lg group-hover:bg-gradient-to-br group-hover:from-blue-50 group-hover:to-purple-50">
+                                        <div className="flex flex-col items-center mb-2">
+                                            <div className={`${benefit.color} text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4 transform transition duration-300 group-hover:scale-110`}>
+                                                <i className={`fas ${benefit.icon} text-xl`}></i>
+                                            </div>
+                                            <h3 className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition duration-300 ">{benefit.title}</h3>
                                         </div>
-                                        <h3 className="text-lg font-bold text-gray-800 group-hover:text-blue-600 transition duration-300 mb-3">{benefit.title}</h3>
-                                        <p className="text-sm text-gray-600">{benefit.description}</p>
+                                        <p className="text-sm text-gray-600 leading-relaxed text-center flex-grow flex items-center justify-center">{benefit.description}</p>
                                     </div>
                                 </div>
                             ))}
