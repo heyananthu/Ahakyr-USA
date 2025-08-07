@@ -15,6 +15,7 @@ import Auth from "layouts/Auth.js";
 import Landing from "views/Landing.js";
 import About from 'views/About'
 import Service from 'views/Service'
+import StaffAugmentation from "pages/StaffAugmentation";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 
@@ -24,6 +25,7 @@ ReactDOM.render(
       <Route path="/" exact component={Landing} />
       <Route path="/about-us" exact component={About} />
       <Route path="/services" exact component={Service} />
+      <Route path="/staff-augmentation" exact component={StaffAugmentation} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>,
