@@ -13,6 +13,15 @@ export default function Navbar(props) {
   const [itServicesTimeout, setItServicesTimeout] = React.useState(null);
   const [dataServicesTimeout, setDataServicesTimeout] = React.useState(null);
 
+  // Cleanup timeouts on unmount
+  React.useEffect(() => {
+    return () => {
+      if (servicesTimeout) clearTimeout(servicesTimeout);
+      if (itServicesTimeout) clearTimeout(itServicesTimeout);
+      if (dataServicesTimeout) clearTimeout(dataServicesTimeout);
+    };
+  }, [servicesTimeout, itServicesTimeout, dataServicesTimeout]);
+
   const handleServicesEnter = () => {
     if (servicesTimeout) clearTimeout(servicesTimeout);
     setServicesOpen(true);
@@ -43,6 +52,19 @@ export default function Navbar(props) {
     setDataServicesTimeout(timeout);
   };
 
+  // Close all dropdowns
+  const closeAllDropdowns = () => {
+    setServicesOpen(false);
+    setItServicesOpen(false);
+    setDataServicesOpen(false);
+    setNavbarOpen(false);
+  };
+
+  // Handle mobile menu item clicks
+  const handleMobileMenuClick = () => {
+    closeAllDropdowns();
+  };
+
   const menuItems = [
     { name: "Home", path: "/", icon: "fas fa-home" },
     { name: "About", path: "/about-us", icon: "fas fa-info-circle" },
@@ -62,6 +84,17 @@ export default function Navbar(props) {
     { name: "IOT", path: "/iot-solutions" },
     { name: "Blockchain", path: "/blockchain-development" },
     { name: "Data Analytics", path: "/data-analytics" },
+  ];
+
+  const dataServices = [
+    { name: "Data Strategy & Consulting", path: "/data-strategy-consulting" },
+    { name: "Data Integration & Migration", path: "/data-integration-migration" },
+    { name: "Analytics & Business Intelligence", path: "/analytics-business-intelligence" },
+    { name: "Data Engineering", path: "/data-engineering" },
+    { name: "Data Security & Privacy", path: "/data-security-privacy" },
+    { name: "AI & Machine Learning Solutions", path: "/ai-ml-solutions" },
+    { name: "Data Entry & Processing", path: "/data-entry-processing" },
+    { name: "Data Conversion & Digitization", path: "/data-conversion-digitization" },
   ];
 
   return (
@@ -100,18 +133,28 @@ export default function Navbar(props) {
                       onMouseEnter={handleServicesEnter}
                       onMouseLeave={handleServicesLeave}
                     >
-                      <button
-                        className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                        onClick={() => setServicesOpen(!servicesOpen)}
-                      >
-                        <i className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`} />
-                        {item.name}
-                        <i className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}></i>
-                      </button>
+                      <div className="flex items-center">
+                        <Link
+                          className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                          to="/services"
+                          onClick={handleMobileMenuClick}
+                        >
+                          <i className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`} />
+                          {item.name}
+                        </Link>
+                        <button
+                          className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-1 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                          onClick={() => setServicesOpen(!servicesOpen)}
+                        >
+                          <i className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}></i>
+                        </button>
+                      </div>
 
                       {/* Services Dropdown */}
                       <div
-                        className={`${servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'} absolute top-full left-0 mt-2 w-72 bg-gray-800 rounded-lg shadow-xl z-50 transition-all duration-200 ease-out`}
+                        className={`${servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'} absolute top-full left-0 mt-2 w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out`}
+                        onMouseEnter={handleServicesEnter}
+                        onMouseLeave={handleServicesLeave}
                       >
                         {/* IT Services with Sub-dropdown */}
                         <div
@@ -119,20 +162,23 @@ export default function Navbar(props) {
                           onMouseEnter={handleItServicesEnter}
                           onMouseLeave={handleItServicesLeave}
                         >
-                          <div className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-t-lg transition-colors duration-150">
-                            <Link
-                              className="flex items-center text-white hover:text-gray-300 font-medium focus:outline-none focus:text-gray-300"
-                              to="/services"
-                            >
+                          <Link
+                            className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-t-lg transition-colors duration-150 hover:text-gray-300 focus:outline-none focus:text-gray-300"
+                            to="/services"
+                            onClick={handleMobileMenuClick}
+                          >
+                            <div className="flex items-center">
                               <i className="fas fa-laptop-code mr-3 text-blue-400"></i>
                               IT Services
-                            </Link>
+                            </div>
                             <i className="fas fa-chevron-right text-xs text-gray-400"></i>
-                          </div>
+                          </Link>
 
                           {/* IT Services Sub-dropdown */}
                           <div
-                            className={`${itServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-60 transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
+                            className={`${itServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
+                            onMouseEnter={handleItServicesEnter}
+                            onMouseLeave={handleItServicesLeave}
                           >
                             <div className="py-2">
                               {itServices.map((service, serviceIndex) => (
@@ -140,6 +186,7 @@ export default function Navbar(props) {
                                   key={serviceIndex}
                                   className="block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150 text-sm"
                                   to={service.path}
+                                  onClick={handleMobileMenuClick}
                                 >
                                   <i className="fas fa-arrow-right mr-2 text-xs text-gray-500"></i>
                                   {service.name}
@@ -153,6 +200,7 @@ export default function Navbar(props) {
                         <Link
                           className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
                           to="/staff-augmentation"
+                          onClick={handleMobileMenuClick}
                         >
                           <i className="fas fa-users mr-3 text-green-400"></i>
                           Staff Augmentation
@@ -164,29 +212,36 @@ export default function Navbar(props) {
                           onMouseEnter={handleDataServicesEnter}
                           onMouseLeave={handleDataServicesLeave}
                         >
-                          <div className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-b-lg transition-colors duration-150">
-                            <Link
-                              className="flex items-center text-white hover:text-gray-300 font-medium focus:outline-none focus:text-gray-300"
-                              to="/data-services"
-                            >
+                          <Link
+                            className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-b-lg transition-colors duration-150 hover:text-gray-300 focus:outline-none focus:text-gray-300"
+                            to="/data-services"
+                            onClick={handleMobileMenuClick}
+                          >
+                            <div className="flex items-center">
                               <i className="fas fa-database mr-3 text-purple-400"></i>
                               Data Services
-                            </Link>
+                            </div>
                             <i className="fas fa-chevron-right text-xs text-gray-400"></i>
-                          </div>
+                          </Link>
 
                           {/* Data Services Sub-dropdown */}
                           <div
-                            className={`${dataServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-64 bg-gray-800 rounded-lg shadow-xl z-60 transition-all duration-200 ease-out`}
+                            className={`${dataServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
+                            onMouseEnter={handleDataServicesEnter}
+                            onMouseLeave={handleDataServicesLeave}
                           >
                             <div className="py-2">
-                              <Link
-                                className="block py-2 px-4 text-white hover:bg-gray-700 hover:text-purple-300 font-medium transition-colors duration-150 text-sm"
-                                to="/data-analytics"
-                              >
-                                <i className="fas fa-arrow-right mr-2 text-xs text-gray-500"></i>
-                                Data Analytics
-                              </Link>
+                              {dataServices.map((service, serviceIndex) => (
+                                <Link
+                                  key={serviceIndex}
+                                  className="block py-2 px-4 text-white hover:bg-gray-700 hover:text-purple-300 font-medium transition-colors duration-150 text-sm"
+                                  to={service.path}
+                                  onClick={handleMobileMenuClick}
+                                >
+                                  <i className="fas fa-arrow-right mr-2 text-xs text-gray-500"></i>
+                                  {service.name}
+                                </Link>
+                              ))}
                             </div>
                           </div>
                         </div>
@@ -196,6 +251,7 @@ export default function Navbar(props) {
                     <Link
                       className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                       to={item.path}
+                      onClick={handleMobileMenuClick}
                     >
                       <i className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`} />
                       {item.name}
