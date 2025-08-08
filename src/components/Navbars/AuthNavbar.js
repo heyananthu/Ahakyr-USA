@@ -168,14 +168,14 @@ export default function Navbar(props) {
                             onClick={handleMobileMenuClick}
                           >
                             <div className="flex items-center">
-                              <i className="fas fa-laptop-code mr-3 text-blue-400"></i>
+                              {/* <i className="fas fa-laptop-code mr-3 text-blue-400"></i> */}
                               IT Services
                             </div>
-                            <i className="fas fa-chevron-right text-xs text-gray-400"></i>
+                            {/* <i className="fas fa-chevron-right text-xs text-gray-400"></i> */}
                           </Link>
 
                           {/* IT Services Sub-dropdown */}
-                          <div
+                          {/* <div
                             className={`${itServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
                             onMouseEnter={handleItServicesEnter}
                             onMouseLeave={handleItServicesLeave}
@@ -193,7 +193,7 @@ export default function Navbar(props) {
                                 </Link>
                               ))}
                             </div>
-                          </div>
+                          </div> */}
                         </div>
 
                         {/* Staff Augmentation */}
@@ -202,7 +202,7 @@ export default function Navbar(props) {
                           to="/staff-augmentation"
                           onClick={handleMobileMenuClick}
                         >
-                          <i className="fas fa-users mr-3 text-green-400"></i>
+                          {/* <i className="fas fa-users mr-3 text-green-400"></i> */}
                           Staff Augmentation
                         </Link>
 
@@ -218,14 +218,14 @@ export default function Navbar(props) {
                             onClick={handleMobileMenuClick}
                           >
                             <div className="flex items-center">
-                              <i className="fas fa-database mr-3 text-purple-400"></i>
+                              {/* <i className="fas fa-database mr-3 text-purple-400"></i> */}
                               Data Services
                             </div>
-                            <i className="fas fa-chevron-right text-xs text-gray-400"></i>
+                            {/* <i className="fas fa-chevron-right text-xs text-gray-400"></i> */}
                           </Link>
 
                           {/* Data Services Sub-dropdown */}
-                          <div
+                          {/* <div
                             className={`${dataServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
                             onMouseEnter={handleDataServicesEnter}
                             onMouseLeave={handleDataServicesLeave}
@@ -243,7 +243,7 @@ export default function Navbar(props) {
                                 </Link>
                               ))}
                             </div>
-                          </div>
+                          </div> */}
                         </div>
                         {/* Call Center */}
                         <Link
@@ -251,9 +251,37 @@ export default function Navbar(props) {
                           to="/call-center-services"
                           onClick={handleMobileMenuClick}
                         >
-                          <i className="fas fa-phone mr-3 text-green-400"></i>
+                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
                           Call Center Services
                         </Link>
+
+                        <Link
+                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                          to="/revenue-cycle-management"
+                          onClick={handleMobileMenuClick}
+                        >
+                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
+                          Revenue Cycle Management
+                        </Link>
+
+                        <Link
+                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                          to="/enterprise-resource-planning"
+                          onClick={handleMobileMenuClick}
+                        >
+                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
+                          Enterprise Resource Planning
+                        </Link>
+
+                        <Link
+                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                          to="/it-infrastructure-management"
+                          onClick={handleMobileMenuClick}
+                        >
+                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
+                          IT & Infrastructure Management
+                        </Link>
+
                       </div>
                     </div>
                   ) : (

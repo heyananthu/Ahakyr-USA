@@ -15,9 +15,16 @@ import Auth from "layouts/Auth.js";
 import Landing from "views/Landing.js";
 import About from 'views/About'
 import Service from 'views/Service'
+import Contact from "views/Contact";
 import StaffAugmentation from "pages/Service/StaffAugmentation";
 import DataServices from "pages/Service/DataServices";
 import CallCenterServices from "pages/Service/CallCenterServices";
+import RevenueCycleManagement from "pages/Service/RevenueCycleManagement";
+import Erp from "pages/Service/Erp";
+import ItInfrastructureManagement from "pages/Service/ItInfrastructureManagement";
+
+
+
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 
@@ -27,9 +34,13 @@ ReactDOM.render(
       <Route path="/" exact component={Landing} />
       <Route path="/about-us" exact component={About} />
       <Route path="/services" exact component={Service} />
+      <Route path="/contact-us" exact component={Contact} />
       <Route path="/staff-augmentation" exact component={StaffAugmentation} />
       <Route path="/data-services" exact component={DataServices} />
       <Route path="/call-center-services" exact component={CallCenterServices} />
+      <Route path="/revenue-cycle-management" exact component={RevenueCycleManagement} />
+      <Route path="/enterprise-resource-planning" exact component={Erp} />
+      <Route path="/it-infrastructure-management" exact component={ItInfrastructureManagement} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>,
