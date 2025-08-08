@@ -62,7 +62,7 @@ export default function Contact() {
                                         Let's Build Something Amazing Together
                                     </h1>
                                     <p className="mt-4 text-sm md:text-lg text-blueGray-200">
-                                        Ready to transform your business with cutting-edge technology solutions? 
+                                        Ready to transform your business with cutting-edge technology solutions?
                                         Our team of experts is here to help you navigate your digital transformation journey.
                                     </p>
                                 </div>
@@ -98,7 +98,7 @@ export default function Contact() {
                             <div className="w-full lg:w-4/12 px-4">
                                 <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
                                     <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">Get In Touch</h3>
-                                    
+
                                     {/* Contact Items */}
                                     <div className="space-y-6">
                                         {/* Email */}
@@ -298,7 +298,7 @@ export default function Contact() {
                     </div>
                 </section>
 
-               
+
             </main>
             <Footer />
         </div>

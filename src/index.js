@@ -22,7 +22,7 @@ import CallCenterServices from "pages/Service/CallCenterServices";
 import RevenueCycleManagement from "pages/Service/RevenueCycleManagement";
 import Erp from "pages/Service/Erp";
 import ItInfrastructureManagement from "pages/Service/ItInfrastructureManagement";
-
+import Seo from "pages/Service/Seo";
 
 
 import Profile from "views/Profile.js";
@@ -41,6 +41,7 @@ ReactDOM.render(
       <Route path="/revenue-cycle-management" exact component={RevenueCycleManagement} />
       <Route path="/enterprise-resource-planning" exact component={Erp} />
       <Route path="/it-infrastructure-management" exact component={ItInfrastructureManagement} />
+      <Route path="/seo-digital-marketing" exact component={Seo} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>,

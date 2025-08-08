@@ -281,6 +281,14 @@ export default function Navbar(props) {
                           {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
                           IT & Infrastructure Management
                         </Link>
+                        <Link
+                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                          to="/seo-digital-marketing"
+                          onClick={handleMobileMenuClick}
+                        >
+                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
+                          SEO & Digital Marketing 
+                        </Link>
 
                       </div>
                     </div>
