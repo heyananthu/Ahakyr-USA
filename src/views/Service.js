@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import banner from '../assets/banners/it-service-banner.jpg'
+import banner2 from '../assets/banners/it-infra-banner.avif'
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -15,7 +16,7 @@ export default function Service() {
                         className="absolute top-0 w-full h-full  bg-cover"
                         style={{
                             backgroundImage:
-                                "url('https://www.31west.net/wp-content/uploads/2022/09/what-is-the-future-of-IT-managed-services.jpg')",
+                            `url(${banner})`
                         }}
                     >
                         <span
@@ -85,7 +86,7 @@ export default function Service() {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                                     <img
                                         alt="IT Services Excellence"
-                                        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+                                        src={banner2}
                                         className="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote className="relative p-8 mb-4">

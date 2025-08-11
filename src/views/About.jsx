@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
-
+import banner from '../assets/banners/about-banner.avif'
+import banner2 from '../assets/banners/staff-augmentation-banner.avif'
 export default function About() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function About() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
+                `url(${banner})`
             }}
           >
             <span
@@ -119,7 +120,7 @@ export default function About() {
                   <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                     <img
                       alt="Team collaboration"
-                      src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
+                      src={banner2}
                       className="w-full align-middle rounded-t-lg"
                     />
                     <blockquote className="relative p-8 mb-4">
@@ -437,7 +438,7 @@ export default function About() {
               ))}
             </div>
 
-           
+
           </div>
         </section>
 
@@ -525,7 +526,7 @@ export default function About() {
             </svg>
           </div>
 
-          <div className="container mx-auto px-4 lg:pt-24 lg:pb-64">
+          <div className="container mx-auto px-4 lg:pt-24 lg:pb-32">
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-8/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
@@ -544,13 +545,22 @@ export default function About() {
                     <span className="text-white">Austin, Texas, USA</span>
                   </div>
                 </div>
+                <div className="flex flex-col sm:flex-row justify-center gap-6 mt-14">
+                  <Link
+                    to="/contact"
+                    className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-2xl transform transition duration-300 hover:scale-105 hover:shadow-3xl"
+                  >
+                    <i className="fas fa-envelope mr-3"></i>
+                    Contact Us
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Contact Form */}
-        <section className="relative block py-24 lg:pt-0 pt-12 bg-blueGray-800">
+        {/* <section className="relative block py-24 lg:pt-0 pt-12 bg-blueGray-800">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-6/12 px-4">
@@ -617,7 +627,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>

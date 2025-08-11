@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import banner from '../../assets/banners/seo-banner.webp'
+import banner2 from '../../assets/banners/seo-banner2.jpg'
+import banner3 from '../../assets/banners/seo-banner3.avif'
+import banner4 from '../../assets/banners/seo-banner4.avif'
+import banner5 from '../../assets/banners/seo-banner5.avif'
+import banner6 from '../../assets/banners/data-service-banner.avif'
 
 export default function Seo() {
     return (
@@ -19,15 +25,15 @@ export default function Seo() {
                 {/* Hero Section */}
                 <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
                     <div
-                        className="absolute top-0 w-full h-full bg-cover"
+                        className="absolute top-0 w-full h-full bg-center"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2015&q=80')",
+                            `url(${banner})`
                         }}
                     >
                         <span
                             id="blackOverlay"
-                            className="w-full h-full absolute opacity-75 bg-black"
+                            className="w-full h-full absolute opacity-80 bg-black"
                         ></span>
                     </div>
                     <div className="container relative mx-auto">
@@ -140,7 +146,7 @@ export default function Seo() {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                                     <img
                                         alt="SEO Analytics"
-                                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                        src= {banner2}
                                         className="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote className="relative p-8 mb-4">
@@ -267,7 +273,7 @@ export default function Seo() {
                                 <img
                                     alt="SEO Optimization"
                                     className="max-w-full rounded-lg shadow-lg"
-                                    src="https://images.unsplash.com/photo-1562577309-2592ab84b1bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+                                    src={banner3}
                                 />
                             </div>
                         </div>
@@ -278,7 +284,7 @@ export default function Seo() {
                                 <img
                                     alt="Social Media Marketing"
                                     className="max-w-full rounded-lg shadow-lg"
-                                    src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                    src={banner4}
                                 />
                             </div>
                             <div className="w-full md:w-6/12 px-4">
@@ -427,7 +433,7 @@ export default function Seo() {
                                 <img
                                     alt="Performance Marketing"
                                     className="max-w-full rounded-lg shadow-lg"
-                                    src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                    src={banner5}
                                 />
                             </div>
                         </div>
@@ -438,7 +444,7 @@ export default function Seo() {
                                 <img
                                     alt="Analytics and Reporting"
                                     className="max-w-full rounded-lg shadow-lg"
-                                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                                    src={banner6}
                                 />
                             </div>
                             <div className="w-full md:w-6/12 px-4">

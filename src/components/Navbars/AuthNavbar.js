@@ -69,8 +69,8 @@ export default function Navbar(props) {
     { name: "Home", path: "/", icon: "fas fa-home" },
     { name: "About", path: "/about-us", icon: "fas fa-info-circle" },
     { name: "Services", path: "/services", icon: "fas fa-cogs", hasDropdown: true },
-    { name: "Blog", path: "/blog", icon: "fas fa-blog" },
-    { name: "Contact Us", path: "/contact", icon: "fas fa-envelope" },
+    // { name: "Blog", path: "/blog", icon: "fas fa-blog" },
+    { name: "Contact Us", path: "/contact-us", icon: "fas fa-envelope" },
   ];
 
   const itServices = [

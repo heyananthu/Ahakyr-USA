@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import banner from '../../assets/banners/call-center-banner.avif'
+import banner2 from '../../assets/banners/call-center-banner2.avif'
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -14,8 +15,7 @@ export default function CallCenterServices() {
                     <div
                         className="absolute top-0 w-full h-full bg-cover"
                         style={{
-                            backgroundImage:
-                                "url('https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')",
+                            backgroundImage: `url(${banner})`,
                         }}
                     >
                         <span
@@ -84,7 +84,7 @@ export default function CallCenterServices() {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                                     <img
                                         alt="Call Center Excellence"
-                                        src="https://images.unsplash.com/photo-1553484771-cc0d9b8c2b33?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
+                                        src={banner2}
                                         className="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote className="relative p-8 mb-4">

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import banner from '../../assets/banners/data-service-banner.avif'
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -15,7 +15,7 @@ export default function DataServices() {
                         className="absolute top-0 w-full h-full bg-cover"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')",
+                                `url(${banner})`,
                         }}
                     >
                         <span

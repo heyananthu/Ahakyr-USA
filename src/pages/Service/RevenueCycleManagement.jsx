@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import banner from '../../assets/banners/revenue-cycle-management-banner.avif'
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
+
 
 export default function RevenueCycleManagement() {
     return (
@@ -12,10 +13,10 @@ export default function RevenueCycleManagement() {
                 {/* Hero Section */}
                 <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
                     <div
-                        className="absolute top-0 w-full h-full bg-cover"
+                        className="absolute top-0 w-full h-full bg-center"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')",
+                                `url(${banner})`
                         }}
                     >
                         <span

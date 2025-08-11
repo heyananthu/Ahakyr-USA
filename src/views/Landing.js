@@ -637,7 +637,7 @@ export default function Landing() {
             </svg>
           </div>
 
-          <div className="container mx-auto px-4 lg:pt-24 lg:pb-64">
+          <div className="container mx-auto px-4 lg:pt-24 lg:pb-14">
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
@@ -648,6 +648,15 @@ export default function Landing() {
                   Contact us today for a free strategy session and tailored solutions for your business needs.
                 </p>
               </div>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-center gap-6 ">
+              <Link
+                to="/contact-us"
+                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-4 px-10 rounded-full shadow-2xl transform transition duration-300 hover:scale-105 hover:shadow-3xl"
+              >
+                <i className="fas fa-envelope mr-3"></i>
+                Contact Us
+              </Link>
             </div>
             {/* <div className="flex flex-wrap mt-12 justify-center">
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -687,7 +696,7 @@ export default function Landing() {
             </div> */}
           </div>
         </section>
-        <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
+        {/* <section className="relative block py-24 lg:pt-0 bg-blueGray-800">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center lg:-mt-64 -mt-48">
               <div className="w-full lg:w-6/12 px-4">
@@ -755,7 +764,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>

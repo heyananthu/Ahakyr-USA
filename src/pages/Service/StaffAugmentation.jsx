@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import banner from '../../assets/banners/staff-augmentation-banner.avif'
+import banner2 from '../../assets/banners/staff-augmentation-banner2.avif'
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -15,7 +16,7 @@ export default function StaffAugmentation() {
                         className="absolute top-0 w-full h-full bg-cover"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')",
+                                `url(${banner})`
                         }}
                     >
                         <span
@@ -84,7 +85,7 @@ export default function StaffAugmentation() {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                                     <img
                                         alt="Staff Augmentation Excellence"
-                                        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
+                                        src={banner2}
                                         className="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote className="relative p-8 mb-4">

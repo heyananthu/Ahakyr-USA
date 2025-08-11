@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import banner from "../../assets/banners/erp-banner.avif"
+import banner2 from '../../assets/banners/data-service-banner.avif'
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
 
@@ -22,7 +23,7 @@ export default function Erp() {
                         className="absolute top-0 w-full h-full bg-cover"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')",
+                               `url(${banner})`,
                         }}
                     >
                         <span
@@ -91,7 +92,7 @@ export default function Erp() {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                                     <img
                                         alt="ERP Solutions Excellence"
-                                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
+                                        src= {banner2}
                                         className="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote className="relative p-8 mb-4">

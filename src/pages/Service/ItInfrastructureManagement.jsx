@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import banner from '../../assets/banners/it-infra-banner.avif'
+import banner2 from '../../assets/banners/it-infra-banner2.avif'
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
@@ -22,7 +24,7 @@ export default function ItInfrastructureManagement() {
                         className="absolute top-0 w-full h-full bg-cover"
                         style={{
                             backgroundImage:
-                                "url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80')",
+                                `url(${banner})`
                         }}
                     >
                         <span
@@ -91,7 +93,7 @@ export default function ItInfrastructureManagement() {
                                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                                     <img
                                         alt="IT Infrastructure Management Excellence"
-                                        src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
+                                        src={banner2}
                                         className="w-full align-middle rounded-t-lg"
                                     />
                                     <blockquote className="relative p-8 mb-4">
@@ -223,7 +225,7 @@ export default function ItInfrastructureManagement() {
                             <div className="text-center mb-16">
                                 <h2 className="text-3xl md:text-5xl font-bold text-blueGray-800 mb-4">Why Choose Ahakyr?</h2>
                             </div>
-                            
+
                             <div className="max-w-6xl mx-auto">
                                 <div className="bg-white rounded-2xl shadow-2xl overflow-hidden ">
                                     <div className="overflow-x-auto">
