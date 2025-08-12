@@ -23,6 +23,8 @@ import RevenueCycleManagement from "pages/Service/RevenueCycleManagement";
 import Erp from "pages/Service/Erp";
 import ItInfrastructureManagement from "pages/Service/ItInfrastructureManagement";
 import Seo from "pages/Service/Seo";
+import Cloud from "pages/Technologies/Cloud";
+import Microsoft from "pages/Technologies/Microsoft";
 
 
 import Profile from "views/Profile.js";
@@ -42,6 +44,8 @@ ReactDOM.render(
       <Route path="/enterprise-resource-planning" exact component={Erp} />
       <Route path="/it-infrastructure-management" exact component={ItInfrastructureManagement} />
       <Route path="/seo-digital-marketing" exact component={Seo} />
+      <Route path="/cloud-services" exact component={Cloud} />
+      <Route path="/microsoft-technologies" exact component={Microsoft} />
       <Redirect from="*" to="/" />
     </Switch>
   </BrowserRouter>,

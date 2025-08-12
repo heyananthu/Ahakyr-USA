@@ -7,11 +7,13 @@ export default function Navbar(props) {
   const [servicesOpen, setServicesOpen] = React.useState(false);
   const [itServicesOpen, setItServicesOpen] = React.useState(false);
   const [dataServicesOpen, setDataServicesOpen] = React.useState(false);
+  const [technologiesOpen, setTechnologiesOpen] = React.useState(false);
 
   // Handle dropdown timeouts for better UX
   const [servicesTimeout, setServicesTimeout] = React.useState(null);
   const [itServicesTimeout, setItServicesTimeout] = React.useState(null);
   const [dataServicesTimeout, setDataServicesTimeout] = React.useState(null);
+  const [technologiesTimeout, setTechnologiesTimeout] = React.useState(null);
 
   // Cleanup timeouts on unmount
   React.useEffect(() => {
@@ -19,8 +21,9 @@ export default function Navbar(props) {
       if (servicesTimeout) clearTimeout(servicesTimeout);
       if (itServicesTimeout) clearTimeout(itServicesTimeout);
       if (dataServicesTimeout) clearTimeout(dataServicesTimeout);
+      if (technologiesTimeout) clearTimeout(technologiesTimeout);
     };
-  }, [servicesTimeout, itServicesTimeout, dataServicesTimeout]);
+  }, [servicesTimeout, itServicesTimeout, dataServicesTimeout, technologiesTimeout]);
 
   const handleServicesEnter = () => {
     if (servicesTimeout) clearTimeout(servicesTimeout);
@@ -52,11 +55,22 @@ export default function Navbar(props) {
     setDataServicesTimeout(timeout);
   };
 
+  const handleTechnologiesEnter = () => {
+    if (technologiesTimeout) clearTimeout(technologiesTimeout);
+    setTechnologiesOpen(true);
+  };
+
+  const handleTechnologiesLeave = () => {
+    const timeout = setTimeout(() => setTechnologiesOpen(false), 150);
+    setTechnologiesTimeout(timeout);
+  };
+
   // Close all dropdowns
   const closeAllDropdowns = () => {
     setServicesOpen(false);
     setItServicesOpen(false);
     setDataServicesOpen(false);
+    setTechnologiesOpen(false);
     setNavbarOpen(false);
   };
 
@@ -68,8 +82,8 @@ export default function Navbar(props) {
   const menuItems = [
     { name: "Home", path: "/", icon: "fas fa-home" },
     { name: "About", path: "/about-us", icon: "fas fa-info-circle" },
-    { name: "Services", path: "/services", icon: "fas fa-cogs", hasDropdown: true },
-    // { name: "Blog", path: "/blog", icon: "fas fa-blog" },
+    { name: "Services", path: "", icon: "fas fa-cogs", hasDropdown: true },
+    { name: "Technologies", path: "", icon: "fas fa-laptop", hasDropdown: true },
     { name: "Contact Us", path: "/contact-us", icon: "fas fa-envelope" },
   ];
 
@@ -130,13 +144,13 @@ export default function Navbar(props) {
                   {item.hasDropdown ? (
                     <div
                       className="relative"
-                      onMouseEnter={handleServicesEnter}
-                      onMouseLeave={handleServicesLeave}
+                      onMouseEnter={item.name === 'Services' ? handleServicesEnter : handleTechnologiesEnter}
+                      onMouseLeave={item.name === 'Services' ? handleServicesLeave : handleTechnologiesLeave}
                     >
                       <div className="flex items-center">
                         <Link
                           className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                          to="/services"
+                          to={item.name === 'Services' ? '/services' : '/technologies'}
                           onClick={handleMobileMenuClick}
                         >
                           <i className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`} />
@@ -144,34 +158,33 @@ export default function Navbar(props) {
                         </Link>
                         <button
                           className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-1 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                          onClick={() => setServicesOpen(!servicesOpen)}
+                          onClick={() => item.name === 'Services' ? setServicesOpen(!servicesOpen) : setTechnologiesOpen(!technologiesOpen)}
                         >
-                          <i className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}></i>
+                          <i className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${item.name === 'Services' ? (servicesOpen ? 'rotate-180' : '') : (technologiesOpen ? 'rotate-180' : '')}`}></i>
                         </button>
                       </div>
 
-                      {/* Services Dropdown */}
+                      {/* Dropdown Panel */}
                       <div
-                        className={`${servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'} absolute top-full left-0 mt-2 w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out`}
-                        onMouseEnter={handleServicesEnter}
-                        onMouseLeave={handleServicesLeave}
+                        className={`${item.name === 'Services' ? (servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2') : (technologiesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2')} absolute top-full left-0 mt-2 w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out`}
+                        onMouseEnter={item.name === 'Services' ? handleServicesEnter : handleTechnologiesEnter}
+                        onMouseLeave={item.name === 'Services' ? handleServicesLeave : handleTechnologiesLeave}
                       >
-                        {/* IT Services with Sub-dropdown */}
+                        {/* Top section link label */}
+                        {item.name === 'Services' && (
                         <div
                           className="relative group"
                           onMouseEnter={handleItServicesEnter}
                           onMouseLeave={handleItServicesLeave}
                         >
                           <Link
-                            className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-t-lg transition-colors duration-150 hover:text-gray-300 focus:outline-none focus:text-gray-300"
+                            className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-t-lg"
                             to="/services"
                             onClick={handleMobileMenuClick}
                           >
                             <div className="flex items-center">
-                              {/* <i className="fas fa-laptop-code mr-3 text-blue-400"></i> */}
                               IT Services
                             </div>
-                            {/* <i className="fas fa-chevron-right text-xs text-gray-400"></i> */}
                           </Link>
 
                           {/* IT Services Sub-dropdown */}
@@ -195,18 +208,21 @@ export default function Navbar(props) {
                             </div>
                           </div> */}
                         </div>
+                        )}
 
                         {/* Staff Augmentation */}
-                        <Link
-                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                          to="/staff-augmentation"
-                          onClick={handleMobileMenuClick}
-                        >
-                          {/* <i className="fas fa-users mr-3 text-green-400"></i> */}
-                          Staff Augmentation
-                        </Link>
+                        {item.name === 'Services' && (
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                            to="/staff-augmentation"
+                            onClick={handleMobileMenuClick}
+                          >
+                            Staff Augmentation
+                          </Link>
+                        )}
 
                         {/* Data Services with Sub-dropdown */}
+                        {item.name === 'Services' && (
                         <div
                           className="relative group"
                           onMouseEnter={handleDataServicesEnter}
@@ -245,50 +261,69 @@ export default function Navbar(props) {
                             </div>
                           </div> */}
                         </div>
+                        )}
                         {/* Call Center */}
-                        <Link
-                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                          to="/call-center-services"
-                          onClick={handleMobileMenuClick}
-                        >
-                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
-                          Call Center Services
-                        </Link>
+                        {item.name === 'Services' && (
+                          <>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/call-center-services"
+                              onClick={handleMobileMenuClick}
+                            >
+                              Call Center Services
+                            </Link>
 
-                        <Link
-                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                          to="/revenue-cycle-management"
-                          onClick={handleMobileMenuClick}
-                        >
-                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
-                          Revenue Cycle Management
-                        </Link>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/revenue-cycle-management"
+                              onClick={handleMobileMenuClick}
+                            >
+                              Revenue Cycle Management
+                            </Link>
 
-                        <Link
-                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                          to="/enterprise-resource-planning"
-                          onClick={handleMobileMenuClick}
-                        >
-                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
-                          Enterprise Resource Planning
-                        </Link>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/enterprise-resource-planning"
+                              onClick={handleMobileMenuClick}
+                            >
+                              Enterprise Resource Planning
+                            </Link>
 
-                        <Link
-                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                          to="/it-infrastructure-management"
-                          onClick={handleMobileMenuClick}
-                        >
-                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
-                          IT & Infrastructure Management
-                        </Link>
-                        <Link
-                          className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                          to="/seo-digital-marketing"
-                          onClick={handleMobileMenuClick}
-                        >
-                          {/* <i className="fas fa-phone mr-3 text-green-400"></i> */}
-                          SEO & Digital Marketing 
-                        </Link>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/it-infrastructure-management"
+                              onClick={handleMobileMenuClick}
+                            >
+                              IT & Infrastructure Management
+                            </Link>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/seo-digital-marketing"
+                              onClick={handleMobileMenuClick}
+                            >
+                              SEO & Digital Marketing
+                            </Link>
+                          </>
+                        )}
+
+                        {item.name === 'Technologies' && (
+                          <>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/cloud-services"
+                              onClick={handleMobileMenuClick}
+                            >
+                              Cloud Services
+                            </Link>
+                            <Link
+                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                              to="/microsoft-technologies"
+                              onClick={handleMobileMenuClick}
+                            >
+                              Microsoft Technologies
+                            </Link>
+                          </>
+                        )}
 
                       </div>
                     </div>
