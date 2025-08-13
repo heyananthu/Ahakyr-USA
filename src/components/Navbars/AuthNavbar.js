@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
           <Link
             to="/"
-            className="text-white text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase focus:outline-none"
+            className="text-white text-lg md:text-3xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase focus:outline-none"
           >
             AHAKYR
           </Link>
@@ -48,13 +48,13 @@ export default function Navbar() {
         {/* Menu */}
         <div
           className={
-            "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none transition-all duration-300" +
-            (navbarOpen ? " block rounded shadow-lg" : " hidden")
+            "lg:flex flex-grow items-center lg:bg-transparent lg:shadow-none transition-all duration-300" +
+            (navbarOpen ? " block rounded shadow-lg bg-white" : " hidden")
           }
         >
-          <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+          <ul className="flex flex-col lg:flex-row lg:items-center lg:space-x-4 list-none lg:ml-auto">
             {menuItems.map((item, index) => (
-              <li key={index} className="flex items-center relative">
+              <li key={index} className="flex items-center relative lg:justify-start justify-center">
                 {item.hasDropdown ? (
                   <div
                     className="relative lg:pb-2"
@@ -202,7 +202,7 @@ export default function Navbar() {
                   </div>
                 ) : (
                   <Link
-                    className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold focus:outline-none"
+                    className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 lg:-mt-2 flex items-center text-sm uppercase font-bold focus:outline-none"
                     to={item.path}
                     onClick={closeAllDropdowns}
                   >
