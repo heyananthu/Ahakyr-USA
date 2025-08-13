@@ -54,24 +54,24 @@ export default function Navbar() {
         >
           <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
             {menuItems.map((item, index) => (
-              <li key={index} className="relative lg:flex lg:items-center">
+              <li key={index} className="flex items-center relative">
                 {item.hasDropdown ? (
                   <div
-                    className="relative"
+                    className="relative lg:pb-2"
                     onMouseEnter={
                       !isMobile
                         ? () =>
-                          item.name === "Services"
-                            ? setServicesOpen(true)
-                            : setTechnologiesOpen(true)
+                            item.name === "Services"
+                              ? setServicesOpen(true)
+                              : setTechnologiesOpen(true)
                         : undefined
                     }
                     onMouseLeave={
                       !isMobile
                         ? () =>
-                          item.name === "Services"
-                            ? setServicesOpen(false)
-                            : setTechnologiesOpen(false)
+                            item.name === "Services"
+                              ? setServicesOpen(false)
+                              : setTechnologiesOpen(false)
                         : undefined
                     }
                   >
@@ -80,9 +80,9 @@ export default function Navbar() {
                       onClick={
                         isMobile
                           ? () =>
-                            item.name === "Services"
-                              ? setServicesOpen(!servicesOpen)
-                              : setTechnologiesOpen(!technologiesOpen)
+                              item.name === "Services"
+                                ? setServicesOpen(!servicesOpen)
+                                : setTechnologiesOpen(!technologiesOpen)
                           : undefined
                       }
                       className="w-full lg:w-auto lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold focus:outline-none"
@@ -92,26 +92,35 @@ export default function Navbar() {
                       />
                       {item.name}
                       <i
-                        className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${item.name === "Services"
+                        className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${
+                          item.name === "Services"
                             ? servicesOpen && "rotate-180"
                             : technologiesOpen && "rotate-180"
-                          }`}
+                        }`}
                       ></i>
                     </button>
 
                     {/* Dropdown */}
                     <div
-                      className={`${item.name === "Services"
+                      className={`${
+                        item.name === "Services"
                           ? servicesOpen
                             ? "block lg:opacity-100 lg:visible lg:translate-y-0"
                             : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
                           : technologiesOpen
-                            ? "block lg:opacity-100 lg:visible lg:translate-y-0"
-                            : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
-                        } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-2`}
+                          ? "block lg:opacity-100 lg:visible lg:translate-y-0"
+                          : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
+                      } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-0`}
                     >
                       {item.name === "Services" && (
                         <>
+                        <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/services"
+                            onClick={closeAllDropdowns}
+                          >
+                            It Services
+                          </Link>
                           <Link
                             className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
                             to="/staff-augmentation"
@@ -121,10 +130,38 @@ export default function Navbar() {
                           </Link>
                           <Link
                             className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/data-services"
+                            onClick={closeAllDropdowns}
+                          >
+                            Data Services
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
                             to="/call-center-services"
                             onClick={closeAllDropdowns}
                           >
                             Call Center Services
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/revenue-cycle-management"
+                            onClick={closeAllDropdowns}
+                          >
+                            Revenue Cycle Management
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/enterprise-resource-planning"
+                            onClick={closeAllDropdowns}
+                          >
+                            Enterprise Resource Planning
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/it-infrastructure-management"
+                            onClick={closeAllDropdowns}
+                          >
+                            It Infrastructure and Management
                           </Link>
                           <Link
                             className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
@@ -151,6 +188,13 @@ export default function Navbar() {
                             onClick={closeAllDropdowns}
                           >
                             Microsoft Technologies
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/javascript-technologies"
+                            onClick={closeAllDropdowns}
+                          >
+                            Javascript Technologies
                           </Link>
                         </>
                       )}
