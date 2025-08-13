@@ -25,6 +25,7 @@ import ItInfrastructureManagement from "pages/Service/ItInfrastructureManagement
 import Seo from "pages/Service/Seo";
 import Cloud from "pages/Technologies/Cloud";
 import Microsoft from "pages/Technologies/Microsoft";
+import Javascript from "pages/Technologies/Javascript";
 
 
 import Profile from "views/Profile.js";
@@ -46,7 +47,8 @@ ReactDOM.render(
       <Route path="/seo-digital-marketing" exact component={Seo} />
       <Route path="/cloud-services" exact component={Cloud} />
       <Route path="/microsoft-technologies" exact component={Microsoft} />
-      <Redirect from="*" to="/" />
+      <Route path="/javascript-technologies" exact component={Javascript} />
+      {/* <Redirect from="*" to="/" /> */}
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

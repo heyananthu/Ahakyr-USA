@@ -1,82 +1,20 @@
-/*eslint-disable*/
+/* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
 import ahakyrLogo from "../../assets/ahakyr/ahakyr-copy.png";
-export default function Navbar(props) {
+
+export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const [servicesOpen, setServicesOpen] = React.useState(false);
-  const [itServicesOpen, setItServicesOpen] = React.useState(false);
-  const [dataServicesOpen, setDataServicesOpen] = React.useState(false);
   const [technologiesOpen, setTechnologiesOpen] = React.useState(false);
 
-  // Handle dropdown timeouts for better UX
-  const [servicesTimeout, setServicesTimeout] = React.useState(null);
-  const [itServicesTimeout, setItServicesTimeout] = React.useState(null);
-  const [dataServicesTimeout, setDataServicesTimeout] = React.useState(null);
-  const [technologiesTimeout, setTechnologiesTimeout] = React.useState(null);
-
-  // Cleanup timeouts on unmount
-  React.useEffect(() => {
-    return () => {
-      if (servicesTimeout) clearTimeout(servicesTimeout);
-      if (itServicesTimeout) clearTimeout(itServicesTimeout);
-      if (dataServicesTimeout) clearTimeout(dataServicesTimeout);
-      if (technologiesTimeout) clearTimeout(technologiesTimeout);
-    };
-  }, [servicesTimeout, itServicesTimeout, dataServicesTimeout, technologiesTimeout]);
-
-  const handleServicesEnter = () => {
-    if (servicesTimeout) clearTimeout(servicesTimeout);
-    setServicesOpen(true);
-  };
-
-  const handleServicesLeave = () => {
-    const timeout = setTimeout(() => setServicesOpen(false), 150);
-    setServicesTimeout(timeout);
-  };
-
-  const handleItServicesEnter = () => {
-    if (itServicesTimeout) clearTimeout(itServicesTimeout);
-    setItServicesOpen(true);
-  };
-
-  const handleItServicesLeave = () => {
-    const timeout = setTimeout(() => setItServicesOpen(false), 150);
-    setItServicesTimeout(timeout);
-  };
-
-  const handleDataServicesEnter = () => {
-    if (dataServicesTimeout) clearTimeout(dataServicesTimeout);
-    setDataServicesOpen(true);
-  };
-
-  const handleDataServicesLeave = () => {
-    const timeout = setTimeout(() => setDataServicesOpen(false), 150);
-    setDataServicesTimeout(timeout);
-  };
-
-  const handleTechnologiesEnter = () => {
-    if (technologiesTimeout) clearTimeout(technologiesTimeout);
-    setTechnologiesOpen(true);
-  };
-
-  const handleTechnologiesLeave = () => {
-    const timeout = setTimeout(() => setTechnologiesOpen(false), 150);
-    setTechnologiesTimeout(timeout);
-  };
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
 
   // Close all dropdowns
   const closeAllDropdowns = () => {
     setServicesOpen(false);
-    setItServicesOpen(false);
-    setDataServicesOpen(false);
     setTechnologiesOpen(false);
     setNavbarOpen(false);
-  };
-
-  // Handle mobile menu item clicks
-  const handleMobileMenuClick = () => {
-    closeAllDropdowns();
   };
 
   const menuItems = [
@@ -87,263 +25,154 @@ export default function Navbar(props) {
     { name: "Contact Us", path: "/contact-us", icon: "fas fa-envelope" },
   ];
 
-  const itServices = [
-    { name: "Web Development Service", path: "/web-development" },
-    { name: "Custom Software Development Service", path: "/custom-software-development" },
-    { name: "Software Product Development Service", path: "/software-product-development" },
-    { name: "Mobile app development Services", path: "/mobile-app-development" },
-    { name: "Software Testing Services", path: "/software-testing" },
-    { name: "UI/UX", path: "/ui-ux-design" },
-    { name: "AI & ML", path: "/ai-ml-development" },
-    { name: "IOT", path: "/iot-solutions" },
-    { name: "Blockchain", path: "/blockchain-development" },
-    { name: "Data Analytics", path: "/data-analytics" },
-  ];
-
-  const dataServices = [
-    { name: "Data Strategy & Consulting", path: "/data-strategy-consulting" },
-    { name: "Data Integration & Migration", path: "/data-integration-migration" },
-    { name: "Analytics & Business Intelligence", path: "/analytics-business-intelligence" },
-    { name: "Data Engineering", path: "/data-engineering" },
-    { name: "Data Security & Privacy", path: "/data-security-privacy" },
-    { name: "AI & Machine Learning Solutions", path: "/ai-ml-solutions" },
-    { name: "Data Entry & Processing", path: "/data-entry-processing" },
-    { name: "Data Conversion & Digitization", path: "/data-conversion-digitization" },
-  ];
-
   return (
-    <>
-      <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <Link
-              className="text-white text-lg  font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-              to="/"
-            >
-              {/* <img src={ahakyrLogo} alt="Ahakyr Logo" className="w-10 h-10" /> */}
-              AHAKYR
-            </Link>
-            <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
-              type="button"
-              onClick={() => setNavbarOpen(!navbarOpen)}
-            >
-              <i className="text-white fas fa-bars"></i>
-            </button>
-          </div>
-          <div
-            className={
-              "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
-              (navbarOpen ? " block rounded shadow-lg" : " hidden")
-            }
-            id="example-navbar-warning"
+    <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
+      <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        {/* Logo & Hamburger */}
+        <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+          <Link
+            to="/"
+            className="text-white text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase focus:outline-none"
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              {menuItems.map((item, index) => (
-                <li key={index} className="flex items-center relative">
-                  {item.hasDropdown ? (
-                    <div
-                      className="relative"
-                      onMouseEnter={item.name === 'Services' ? handleServicesEnter : handleTechnologiesEnter}
-                      onMouseLeave={item.name === 'Services' ? handleServicesLeave : handleTechnologiesLeave}
+            AHAKYR
+          </Link>
+          <button
+            className="cursor-pointer text-xl px-3 py-1 border border-transparent rounded bg-transparent block lg:hidden focus:outline-none"
+            type="button"
+            onClick={() => setNavbarOpen(!navbarOpen)}
+          >
+            <i className="text-white fas fa-bars"></i>
+          </button>
+        </div>
+
+        {/* Menu */}
+        <div
+          className={
+            "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none transition-all duration-300" +
+            (navbarOpen ? " block rounded shadow-lg" : " hidden")
+          }
+        >
+          <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            {menuItems.map((item, index) => (
+              <li key={index} className="relative lg:flex lg:items-center">
+                {item.hasDropdown ? (
+                  <div
+                    className="relative"
+                    onMouseEnter={
+                      !isMobile
+                        ? () =>
+                          item.name === "Services"
+                            ? setServicesOpen(true)
+                            : setTechnologiesOpen(true)
+                        : undefined
+                    }
+                    onMouseLeave={
+                      !isMobile
+                        ? () =>
+                          item.name === "Services"
+                            ? setServicesOpen(false)
+                            : setTechnologiesOpen(false)
+                        : undefined
+                    }
+                  >
+                    {/* Main Menu Button */}
+                    <button
+                      onClick={
+                        isMobile
+                          ? () =>
+                            item.name === "Services"
+                              ? setServicesOpen(!servicesOpen)
+                              : setTechnologiesOpen(!technologiesOpen)
+                          : undefined
+                      }
+                      className="w-full lg:w-auto lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold focus:outline-none"
                     >
-                      <div className="flex items-center">
-                        <Link
-                          className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                          to={item.name === 'Services' ? '/services' : '/technologies'}
-                          onClick={handleMobileMenuClick}
-                        >
-                          <i className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`} />
-                          {item.name}
-                        </Link>
-                        <button
-                          className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-1 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                          onClick={() => item.name === 'Services' ? setServicesOpen(!servicesOpen) : setTechnologiesOpen(!technologiesOpen)}
-                        >
-                          <i className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${item.name === 'Services' ? (servicesOpen ? 'rotate-180' : '') : (technologiesOpen ? 'rotate-180' : '')}`}></i>
-                        </button>
-                      </div>
+                      <i
+                        className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`}
+                      />
+                      {item.name}
+                      <i
+                        className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${item.name === "Services"
+                            ? servicesOpen && "rotate-180"
+                            : technologiesOpen && "rotate-180"
+                          }`}
+                      ></i>
+                    </button>
 
-                      {/* Dropdown Panel */}
-                      <div
-                        className={`${item.name === 'Services' ? (servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2') : (technologiesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2')} absolute top-full left-0 mt-2 w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out`}
-                        onMouseEnter={item.name === 'Services' ? handleServicesEnter : handleTechnologiesEnter}
-                        onMouseLeave={item.name === 'Services' ? handleServicesLeave : handleTechnologiesLeave}
-                      >
-                        {/* Top section link label */}
-                        {item.name === 'Services' && (
-                        <div
-                          className="relative group"
-                          onMouseEnter={handleItServicesEnter}
-                          onMouseLeave={handleItServicesLeave}
-                        >
+                    {/* Dropdown */}
+                    <div
+                      className={`${item.name === "Services"
+                          ? servicesOpen
+                            ? "block lg:opacity-100 lg:visible lg:translate-y-0"
+                            : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
+                          : technologiesOpen
+                            ? "block lg:opacity-100 lg:visible lg:translate-y-0"
+                            : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
+                        } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-2`}
+                    >
+                      {item.name === "Services" && (
+                        <>
                           <Link
-                            className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-t-lg"
-                            to="/services"
-                            onClick={handleMobileMenuClick}
-                          >
-                            <div className="flex items-center">
-                              IT Services
-                            </div>
-                          </Link>
-
-                          {/* IT Services Sub-dropdown */}
-                          {/* <div
-                            className={`${itServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
-                            onMouseEnter={handleItServicesEnter}
-                            onMouseLeave={handleItServicesLeave}
-                          >
-                            <div className="py-2">
-                              {itServices.map((service, serviceIndex) => (
-                                <Link
-                                  key={serviceIndex}
-                                  className="block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150 text-sm"
-                                  to={service.path}
-                                  onClick={handleMobileMenuClick}
-                                >
-                                  <i className="fas fa-arrow-right mr-2 text-xs text-gray-500"></i>
-                                  {service.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div> */}
-                        </div>
-                        )}
-
-                        {/* Staff Augmentation */}
-                        {item.name === 'Services' && (
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
                             to="/staff-augmentation"
-                            onClick={handleMobileMenuClick}
+                            onClick={closeAllDropdowns}
                           >
                             Staff Augmentation
                           </Link>
-                        )}
-
-                        {/* Data Services with Sub-dropdown */}
-                        {item.name === 'Services' && (
-                        <div
-                          className="relative group"
-                          onMouseEnter={handleDataServicesEnter}
-                          onMouseLeave={handleDataServicesLeave}
-                        >
                           <Link
-                            className="w-full flex justify-between items-center py-3 px-4 text-white hover:bg-gray-700 font-medium cursor-pointer rounded-b-lg transition-colors duration-150 hover:text-gray-300 focus:outline-none focus:text-gray-300"
-                            to="/data-services"
-                            onClick={handleMobileMenuClick}
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/call-center-services"
+                            onClick={closeAllDropdowns}
                           >
-                            <div className="flex items-center">
-                              {/* <i className="fas fa-database mr-3 text-purple-400"></i> */}
-                              Data Services
-                            </div>
-                            {/* <i className="fas fa-chevron-right text-xs text-gray-400"></i> */}
+                            Call Center Services
                           </Link>
-
-                          {/* Data Services Sub-dropdown */}
-                          {/* <div
-                            className={`${dataServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} absolute right-full top-0 mr-1 w-80 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 ease-out max-h-96 overflow-y-auto`}
-                            onMouseEnter={handleDataServicesEnter}
-                            onMouseLeave={handleDataServicesLeave}
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/seo-digital-marketing"
+                            onClick={closeAllDropdowns}
                           >
-                            <div className="py-2">
-                              {dataServices.map((service, serviceIndex) => (
-                                <Link
-                                  key={serviceIndex}
-                                  className="block py-2 px-4 text-white hover:bg-gray-700 hover:text-purple-300 font-medium transition-colors duration-150 text-sm"
-                                  to={service.path}
-                                  onClick={handleMobileMenuClick}
-                                >
-                                  <i className="fas fa-arrow-right mr-2 text-xs text-gray-500"></i>
-                                  {service.name}
-                                </Link>
-                              ))}
-                            </div>
-                          </div> */}
-                        </div>
-                        )}
-                        {/* Call Center */}
-                        {item.name === 'Services' && (
-                          <>
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/call-center-services"
-                              onClick={handleMobileMenuClick}
-                            >
-                              Call Center Services
-                            </Link>
+                            SEO & Digital Marketing
+                          </Link>
+                        </>
+                      )}
 
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/revenue-cycle-management"
-                              onClick={handleMobileMenuClick}
-                            >
-                              Revenue Cycle Management
-                            </Link>
-
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/enterprise-resource-planning"
-                              onClick={handleMobileMenuClick}
-                            >
-                              Enterprise Resource Planning
-                            </Link>
-
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/it-infrastructure-management"
-                              onClick={handleMobileMenuClick}
-                            >
-                              IT & Infrastructure Management
-                            </Link>
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/seo-digital-marketing"
-                              onClick={handleMobileMenuClick}
-                            >
-                              SEO & Digital Marketing
-                            </Link>
-                          </>
-                        )}
-
-                        {item.name === 'Technologies' && (
-                          <>
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/cloud-services"
-                              onClick={handleMobileMenuClick}
-                            >
-                              Cloud Services
-                            </Link>
-                            <Link
-                              className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium transition-colors duration-150"
-                              to="/microsoft-technologies"
-                              onClick={handleMobileMenuClick}
-                            >
-                              Microsoft Technologies
-                            </Link>
-                          </>
-                        )}
-
-                      </div>
+                      {item.name === "Technologies" && (
+                        <>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/cloud-services"
+                            onClick={closeAllDropdowns}
+                          >
+                            Cloud Services
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/microsoft-technologies"
+                            onClick={closeAllDropdowns}
+                          >
+                            Microsoft Technologies
+                          </Link>
+                        </>
+                      )}
                     </div>
-                  ) : (
-                    <Link
-                      className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                      to={item.path}
-                      onClick={handleMobileMenuClick}
-                    >
-                      <i className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`} />
-                      {item.name}
-                    </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
-
-          </div>
+                  </div>
+                ) : (
+                  <Link
+                    className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold focus:outline-none"
+                    to={item.path}
+                    onClick={closeAllDropdowns}
+                  >
+                    <i
+                      className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`}
+                    />
+                    {item.name}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 }

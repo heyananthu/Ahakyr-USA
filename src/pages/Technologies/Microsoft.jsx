@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
+import banner from '../../assets/banners/microsoft-banner.avif'
 
 function Microsoft() {
     return (
@@ -12,9 +13,13 @@ function Microsoft() {
             <main>
                 {/* Hero */}
                 <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
-                    <div className="absolute top-0 w-full h-full bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700">
-                        <span id="blackOverlay" className="w-full h-full absolute opacity-70 bg-black"></span>
+                    <div
+                        className="absolute top-0 w-full h-full bg-center bg-cover"
+                        style={{ backgroundImage: `url(${banner})` }}
+                    >
+                        <span id="blackOverlay" className="w-full h-full absolute opacity-75 bg-black"></span>
                     </div>
+
 
                     <div className="container relative mx-auto">
                         <div className="items-center flex flex-wrap">
