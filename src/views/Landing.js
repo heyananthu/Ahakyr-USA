@@ -113,159 +113,144 @@ export default function Landing() {
             </div>
 
 
-<div className="container mx-auto px-6 py-16 space-y-20">
+            <div className="container mx-auto px-6 py-16 space-y-20">
 
-  {/* AI Section */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 className="text-2xl font-bold mb-4">AI: Turning Efficiency into Meaningful Interaction</h2>
-      <p className="text-gray-600 leading-relaxed">
-        AI bridges the gap between technology and human connection, delivering more than efficiency
-        by enabling intelligent, context-aware interactions. It drives smarter processes, strengthens
-        customer engagement, and creates digital experiences that deliver measurable impact.
-      </p>
-    </div>
-    <div className="flex justify-center">
-      <img
-        src={ai}
-        alt="AI Interaction"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-  </div>
+              {/* AI Section */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">AI: Turning Efficiency into Meaningful Interaction</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    AI bridges the gap between technology and human connection, delivering more than efficiency
+                    by enabling intelligent, context-aware interactions. It drives smarter processes, strengthens
+                    customer engagement, and creates digital experiences that deliver measurable impact.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <img
+                    src={ai}
+                    alt="AI Interaction"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+              </div>
 
-  {/* Enterprise Apps */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div className="order-2 md:order-1 flex justify-center">
-      <img
-        src={appdevelopment}
-        alt="Enterprise Applications"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-    <div className="order-1 md:order-2">
-      <h2 className="text-2xl font-bold mb-4">Enterprise-Grade App Development</h2>
-      <p className="text-gray-600 leading-relaxed">
-        Enterprise application development is crucial for businesses seeking to enhance efficiency
-        and streamline operations. By investing in tailored solutions, organizations can optimize
-        workflows and improve productivity across departments.
-      </p>
-    </div>
-  </div>
+              {/* Enterprise Apps */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div className="order-2 md:order-1 flex justify-center">
+                  <img
+                    src={appdevelopment}
+                    alt="Enterprise Applications"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+                <div className="order-1 md:order-2">
+                  <h2 className="text-2xl font-bold mb-4">Enterprise-Grade App Development</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    Enterprise application development is crucial for businesses seeking to enhance efficiency
+                    and streamline operations. By investing in tailored solutions, organizations can optimize
+                    workflows and improve productivity across departments.
+                  </p>
+                </div>
+              </div>
 
-  {/* SEO */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Search Ranking Optimization & Digital Outreach</h2>
-      <p className="text-gray-600 leading-relaxed">
-        Search ranking optimization and digital outreach are key to building a successful online
-        presence. By improving visibility and engaging in targeted campaigns, you can drive
-        organic traffic, boost conversions, and strengthen brand credibility.
-      </p>
-    </div>
-    <div className="flex justify-center">
-      <img
-        src={seo}
-        alt="SEO and Digital Outreach"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-  </div>
+              {/* SEO */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Search Ranking Optimization & Digital Outreach</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    Search ranking optimization and digital outreach are key to building a successful online
+                    presence. By improving visibility and engaging in targeted campaigns, you can drive
+                    organic traffic, boost conversions, and strengthen brand credibility.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <img
+                    src={seo}
+                    alt="SEO and Digital Outreach"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+              </div>
 
-  {/* Cloud Solutions */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div className="order-2 md:order-1 flex justify-center">
-      <img
-        src={cloud}
-        alt="Cloud Solutions"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-    <div className="order-1 md:order-2">
-      <h2 className="text-2xl font-bold mb-4">IT Infrastructure & Cloud Solutions</h2>
-      <p className="text-gray-600 leading-relaxed">
-        IT Infrastructure and Cloud Solutions are essential for modern businesses to thrive in a
-        digital landscape. Robust infrastructure ensures seamless operations, while scalable cloud
-        technologies provide flexibility to adapt quickly to changing demands.
-      </p>
-    </div>
-  </div>
+              {/* Cloud Solutions */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div className="order-2 md:order-1 flex justify-center">
+                  <img
+                    src={cloud}
+                    alt="Cloud Solutions"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+                <div className="order-1 md:order-2">
+                  <h2 className="text-2xl font-bold mb-4">IT Infrastructure & Cloud Solutions</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    IT Infrastructure and Cloud Solutions are essential for modern businesses to thrive in a
+                    digital landscape. Robust infrastructure ensures seamless operations, while scalable cloud
+                    technologies provide flexibility to adapt quickly to changing demands.
+                  </p>
+                </div>
+              </div>
 
-  {/* Adaptive Apps */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Adaptive Web & Mobile Application Development</h2>
-      <p className="text-gray-600 leading-relaxed">
-        Adaptive web and mobile application development is vital for businesses striving to succeed
-        in the digital era. With responsive design techniques, applications seamlessly adjust to
-        different devices and screen sizes, ensuring flawless user experiences.
-      </p>
-    </div>
-    <div className="flex justify-center">
-      <img
-        src={webmobiledev}
-        alt="Adaptive Web and Mobile"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-  </div>
+              {/* Adaptive Apps */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">Adaptive Web & Mobile Application Development</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    Adaptive web and mobile application development is vital for businesses striving to succeed
+                    in the digital era. With responsive design techniques, applications seamlessly adjust to
+                    different devices and screen sizes, ensuring flawless user experiences.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <img
+                    src={webmobiledev}
+                    alt="Adaptive Web and Mobile"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+              </div>
 
-  {/* Agile Talent */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div className="order-2 md:order-1 flex justify-center">
-      <img
-        src={agile}
-        alt="Agile Talent"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-    <div className="order-1 md:order-2">
-      <h2 className="text-2xl font-bold mb-4">Agile Talent Solutions</h2>
-      <p className="text-gray-600 leading-relaxed">
-        Agile Talent Solutions unlock organizational potential with flexible, adaptive approaches to
-        talent acquisition. Businesses can respond quickly to market demands while ensuring the right
-        people are in place at the right time.
-      </p>
-    </div>
-  </div>
+              {/* Agile Talent */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div className="order-2 md:order-1 flex justify-center">
+                  <img
+                    src={agile}
+                    alt="Agile Talent"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+                <div className="order-1 md:order-2">
+                  <h2 className="text-2xl font-bold mb-4">Agile Talent Solutions</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    Agile Talent Solutions unlock organizational potential with flexible, adaptive approaches to
+                    talent acquisition. Businesses can respond quickly to market demands while ensuring the right
+                    people are in place at the right time.
+                  </p>
+                </div>
+              </div>
 
-  {/* ERP Solutions */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div>
-      <h2 className="text-2xl font-bold mb-4">ERP Solutions and Expert Guidance</h2>
-      <p className="text-gray-600 leading-relaxed">
-        Every business dream deserves clarity and confidence.
-        With the right guidance, AI-powered ERP turns confusion into smart choices.
-        Step forward with systems that spark growth, ease, and lasting success.
-      </p>
-    </div>
-    <div className="flex justify-center">
-      <img
-        src={erp}
-        alt="ERP Solutions"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-  </div>
+              {/* ERP Solutions */}
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                  <h2 className="text-2xl font-bold mb-4">ERP Solutions and Expert Guidance</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    Every business dream deserves clarity and confidence.
+                    With the right guidance, AI-powered ERP turns confusion into smart choices.
+                    Step forward with systems that spark growth, ease, and lasting success.
+                  </p>
+                </div>
+                <div className="flex justify-center">
+                  <img
+                    src={erp}
+                    alt="ERP Solutions"
+                    className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
+                  />
+                </div>
+              </div>
 
-  {/* Extractdoc AI */}
-  <div className="grid md:grid-cols-2 gap-10 items-center">
-    <div className="order-2 md:order-1 flex justify-center">
-      <img
-        src={extract}
-        alt="Extractdoc AI"
-        className="w-[500px] h-[350px] object-cover rounded-xl shadow-md"
-      />
-    </div>
-    <div className="order-1 md:order-2">
-      <h2 className="text-2xl font-bold mb-4">Extractdoc AI</h2>
-      <p className="text-gray-600 leading-relaxed">
-        The ability to extract and utilize information efficiently is crucial for any business. ExtractDoc.ai, an AI-powered platform, transforms how organizations handle documents by converting invoices, PDFs, forms, and webpages into structured, actionable data. This saves time, reduces manual errors, and drives smarter decision-making. From accountants processing invoices in minutes to healthcare providers extracting patient details accurately, ExtractDoc.ai ensures both speed and precision. Its scalability makes it ideal for growing businesses, handling increasing volumes without extra resources. By turning paperwork into digital intelligence, ExtractDoc.ai empowers industries to streamline operations and unlock new insights with confidence.
-      </p>
-    </div>
-  </div>
 
-</div>
+
+            </div>
 
 
 
@@ -436,7 +421,7 @@ export default function Landing() {
         {/* Featured Product */}
         <div className="container mx-auto px-4 pb-32 pt-12">
           <div className="items-center flex flex-wrap">
-            <div className="w-full md:w-5/12 ml-auto px-12 md:px-4">
+            <div className="w-full md:w-6/12 ml-auto px-12 md:px-4">
               <div className="md:pr-12">
                 <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-white">
                   <i className="fas fa-file-alt text-xl"></i>
@@ -446,9 +431,8 @@ export default function Landing() {
                 </h3>
                 <h4 className="text-3xl font-semibold  mt-6">ExtractDoc.ai</h4>
                 <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                  Quickly convert documents (invoices, PDFs, forms, webpages) into structured, actionable data using our AI-powered platform.
-                </p>
-                <ul className="list-none mt-6">
+                  The ability to extract and utilize information efficiently is crucial for any business. ExtractDoc.ai, an AI-powered platform, transforms how organizations handle documents by converting invoices, PDFs, forms, and webpages into structured, actionable data. This saves time, reduces manual errors, and drives smarter decision-making. From accountants processing invoices in minutes to healthcare providers extracting patient details accurately, ExtractDoc.ai ensures both speed and precision. Its scalability makes it ideal for growing businesses, handling increasing volumes without extra resources. By turning paperwork into digital intelligence, ExtractDoc.ai empowers industries to streamline operations and unlock new insights with confidence.                </p>
+                {/* <ul className="list-none mt-6">
                   <li className="py-2">
                     <div className="flex items-center">
                       <div>
@@ -491,11 +475,11 @@ export default function Landing() {
                       </div>
                     </div>
                   </li>
-                </ul>
+                </ul> */}
               </div>
             </div>
 
-            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-0">
+            <div className="w-full md:w-6/12 mr-auto px-4 pt-24 md:pt-20">
               <img
                 alt="..."
                 className="w-full md:h-80 rounded-lg shadow-xl object-cover"
