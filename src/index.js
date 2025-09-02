@@ -26,7 +26,9 @@ import Seo from "pages/Service/Seo";
 import Cloud from "pages/Technologies/Cloud";
 import Microsoft from "pages/Technologies/Microsoft";
 import Javascript from "pages/Technologies/Javascript";
-
+import MobileAppDevelopment from "pages/Technologies/MobileAppDevelopment";
+import Deveops from "pages/Technologies/Deveops";
+import TestAutomation from "pages/Technologies/TestAutomation";
 
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
@@ -48,6 +50,10 @@ ReactDOM.render(
       <Route path="/cloud-services" exact component={Cloud} />
       <Route path="/microsoft-technologies" exact component={Microsoft} />
       <Route path="/javascript-technologies" exact component={Javascript} />
+      <Route path="/mobile-app-development" exact component={MobileAppDevelopment} />
+      <Route path="/devops" exact component={Deveops} />
+      <Route path="/test-automation" exact component={TestAutomation} />
+
       {/* <Redirect from="*" to="/" /> */}
     </Switch>
   </BrowserRouter>,

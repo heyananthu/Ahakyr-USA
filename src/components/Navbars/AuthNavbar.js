@@ -196,6 +196,27 @@ export default function Navbar() {
                           >
                             Javascript Technologies
                           </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/mobile-app-development"
+                            onClick={closeAllDropdowns}
+                          >
+                            Mobile App Development
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/devops"
+                            onClick={closeAllDropdowns}
+                          >
+                            DevOps
+                          </Link>
+                          <Link
+                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
+                            to="/test-automation"
+                            onClick={closeAllDropdowns}
+                          >
+                            Test Automation
+                          </Link> 
                         </>
                       )}
                     </div>
