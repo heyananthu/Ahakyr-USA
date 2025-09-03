@@ -1,20 +1,29 @@
-/* eslint-disable */
 import React from "react";
 import { Link } from "react-router-dom";
-import ahakyrLogo from "../../assets/ahakyr/ahakyr-copy.png";
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   const [servicesOpen, setServicesOpen] = React.useState(false);
   const [technologiesOpen, setTechnologiesOpen] = React.useState(false);
+  const [itServicesOpen, setItServicesOpen] = React.useState(false);
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 1024;
+  const [isMobile, setIsMobile] = React.useState(
+    typeof window !== "undefined" ? window.innerWidth < 1024 : false
+  );
 
-  // Close all dropdowns
+  React.useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const closeAllDropdowns = () => {
     setServicesOpen(false);
     setTechnologiesOpen(false);
     setNavbarOpen(false);
+    setItServicesOpen(false);
   };
 
   const menuItems = [
@@ -24,6 +33,8 @@ export default function Navbar() {
     { name: "Technologies", path: "", icon: "fas fa-laptop", hasDropdown: true },
     { name: "Contact Us", path: "/contact-us", icon: "fas fa-envelope" },
   ];
+
+  const menuFont = "text-base"; // Consistent font size for menu items
 
   return (
     <nav className="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
@@ -54,176 +65,278 @@ export default function Navbar() {
         >
           <ul className="flex flex-col lg:flex-row lg:items-center lg:space-x-4 list-none lg:ml-auto">
             {menuItems.map((item, index) => (
-              <li key={index} className="flex items-center relative lg:justify-start justify-center">
+              <li
+                key={index}
+                className={`flex items-center relative lg:justify-start justify-center ${menuFont}`}
+              >
                 {item.hasDropdown ? (
-                  <div
-                    className="relative lg:pb-2"
-                    onMouseEnter={
-                      !isMobile
-                        ? () =>
-                            item.name === "Services"
-                              ? setServicesOpen(true)
-                              : setTechnologiesOpen(true)
-                        : undefined
-                    }
-                    onMouseLeave={
-                      !isMobile
-                        ? () =>
-                            item.name === "Services"
-                              ? setServicesOpen(false)
-                              : setTechnologiesOpen(false)
-                        : undefined
-                    }
-                  >
-                    {/* Main Menu Button */}
-                    <button
-                      onClick={
-                        isMobile
-                          ? () =>
-                              item.name === "Services"
-                                ? setServicesOpen(!servicesOpen)
-                                : setTechnologiesOpen(!technologiesOpen)
+                  item.name === "Services" ? (
+                    <div
+                      className="relative lg:pb-2"
+                      onMouseEnter={
+                        !isMobile ? () => setServicesOpen(true) : undefined
+                      }
+                      onMouseLeave={
+                        !isMobile
+                          ? () => {
+                            setServicesOpen(false);
+                            setItServicesOpen(false);
+                          }
                           : undefined
                       }
-                      className="w-full lg:w-auto lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-sm uppercase font-bold focus:outline-none"
                     >
-                      <i
-                        className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`}
-                      />
-                      {item.name}
-                      <i
-                        className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${
-                          item.name === "Services"
-                            ? servicesOpen && "rotate-180"
-                            : technologiesOpen && "rotate-180"
-                        }`}
-                      ></i>
-                    </button>
+                      {/* Main Services Button */}
+                      <button
+                        onClick={
+                          isMobile
+                            ? () => setServicesOpen(!servicesOpen)
+                            : undefined
+                        }
+                        className={`w-full lg:w-auto lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold focus:outline-none ${menuFont}`}
+                      >
+                        <i
+                          className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`}
+                        />
+                        {item.name}
+                        <i
+                          className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${servicesOpen && "rotate-180"
+                            }`}
+                        ></i>
+                      </button>
 
-                    {/* Dropdown */}
-                    <div
-                      className={`${
-                        item.name === "Services"
-                          ? servicesOpen
+                      {/* Main Services Dropdown */}
+                      <div
+                        className={`${servicesOpen
                             ? "block lg:opacity-100 lg:visible lg:translate-y-0"
                             : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
-                          : technologiesOpen
-                          ? "block lg:opacity-100 lg:visible lg:translate-y-0"
-                          : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
-                      } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-0`}
-                    >
-                      {item.name === "Services" && (
-                        <>
-                        <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/services"
-                            onClick={closeAllDropdowns}
-                          >
-                            It Services
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/staff-augmentation"
-                            onClick={closeAllDropdowns}
-                          >
-                            Staff Augmentation
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/data-services"
-                            onClick={closeAllDropdowns}
-                          >
-                            Data Services
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/call-center-services"
-                            onClick={closeAllDropdowns}
-                          >
-                            Call Center Services
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/revenue-cycle-management"
-                            onClick={closeAllDropdowns}
-                          >
-                            Revenue Cycle Management
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/enterprise-resource-planning"
-                            onClick={closeAllDropdowns}
-                          >
-                            Enterprise Resource Planning
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/it-infrastructure-management"
-                            onClick={closeAllDropdowns}
-                          >
-                            It Infrastructure and Management
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/seo-digital-marketing"
-                            onClick={closeAllDropdowns}
-                          >
-                            SEO & Digital Marketing
-                          </Link>
-                        </>
-                      )}
+                          } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-0`}
+                      >
+                        {/* IT Services Submenu Trigger */}
+                        <div
+                          className="relative group"
+                          onMouseEnter={
+                            !isMobile ? () => setItServicesOpen(true) : undefined
+                          }
+                          onMouseLeave={
+                            !isMobile ? () => setItServicesOpen(false) : undefined
+                          }
+                        >
+                          <div className="flex justify-between items-center w-full">
+                            <Link
+                              to="/services"
+                              className="block text-white py-3 px-4 hover:bg-gray-700 hover:text-blue-300 font-medium flex-grow"
+                              onClick={closeAllDropdowns}
+                            >
+                              IT Services
+                            </Link>
+                            {/* Toggle button visible only on mobile for submenu */}
+                            {/* {isMobile && ( */}
+                              <button
+                                type="button"
+                                className="text-white px-3 py-3 hover:bg-gray-700"
+                                aria-label="Toggle IT Services submenu"
+                                onClick={() => setItServicesOpen(!itServicesOpen)}
+                              >
+                                <i
+                                  className={`fas fa-chevron-${itServicesOpen ? "up" : "down"}`}
+                                />
+                              </button>
+                            {/* )} */}
+                          </div>
 
-                      {item.name === "Technologies" && (
-                        <>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/cloud-services"
-                            onClick={closeAllDropdowns}
+
+                          {/* IT SERVICES SUBMENU */}
+                          <div
+                            className={
+                              isMobile
+                                ? `${itServicesOpen ? "block" : "hidden"} w-full bg-gray-700 rounded-b-md`
+                                : `absolute top-0 right-full ${itServicesOpen ? "block lg:opacity-100 lg:visible" : "hidden lg:opacity-0 lg:invisible"
+                                } w-64 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 font-medium`
+                            }
+                            style={isMobile ? {} : { minWidth: "16rem" }}
+                            // Fix: keep submenu open when mouse is over it
+                            onMouseEnter={!isMobile ? () => setItServicesOpen(true) : undefined}
+                            onMouseLeave={!isMobile ? () => setItServicesOpen(false) : undefined}
                           >
-                            Cloud Services
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/microsoft-technologies"
-                            onClick={closeAllDropdowns}
-                          >
-                            Microsoft Technologies
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/javascript-technologies"
-                            onClick={closeAllDropdowns}
-                          >
-                            Javascript Technologies
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/mobile-app-development"
-                            onClick={closeAllDropdowns}
-                          >
-                            Mobile App Development
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/devops"
-                            onClick={closeAllDropdowns}
-                          >
-                            DevOps
-                          </Link>
-                          <Link
-                            className="block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium"
-                            to="/test-automation"
-                            onClick={closeAllDropdowns}
-                          >
-                            Test Automation
-                          </Link> 
-                        </>
-                      )}
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/web-development-services"
+                              onClick={closeAllDropdowns}
+                            >
+                              Web Development
+                            </Link>
+                            {/* <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/staff-augmentation"
+                              onClick={closeAllDropdowns}
+                            >
+                              Staff Augmentation
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/data-services"
+                              onClick={closeAllDropdowns}
+                            >
+                              Data Services
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/call-center-services"
+                              onClick={closeAllDropdowns}
+                            >
+                              Call Center Services
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/revenue-cycle-management"
+                              onClick={closeAllDropdowns}
+                            >
+                              Revenue Cycle Management
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/enterprise-resource-planning"
+                              onClick={closeAllDropdowns}
+                            >
+                              Enterprise Resource Planning
+                            </Link> */}
+                          </div>
+                        </div>
+                        {/* Services direct links */}
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/staff-augmentation"
+                          onClick={closeAllDropdowns}
+                        >
+                          Staff Augmentation
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/data-services"
+                          onClick={closeAllDropdowns}
+                        >
+                          Data Services
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/call-center-services"
+                          onClick={closeAllDropdowns}
+                        >
+                          Call Center Services
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/revenue-cycle-management"
+                          onClick={closeAllDropdowns}
+                        >
+                          Revenue Cycle Management
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/enterprise-resource-planning"
+                          onClick={closeAllDropdowns}
+                        >
+                          Enterprise Resource Planning
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/it-infrastructure-management"
+                          onClick={closeAllDropdowns}
+                        >
+                          IT Infrastructure and Management
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/seo-digital-marketing"
+                          onClick={closeAllDropdowns}
+                        >
+                          SEO & Digital Marketing
+                        </Link>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    // TECHNOLOGIES DROPDOWN
+                    <div
+                      className="relative lg:pb-2"
+                      onMouseEnter={
+                        !isMobile ? () => setTechnologiesOpen(true) : undefined
+                      }
+                      onMouseLeave={
+                        !isMobile ? () => setTechnologiesOpen(false) : undefined
+                      }
+                    >
+                      <button
+                        onClick={
+                          isMobile
+                            ? () => setTechnologiesOpen(!technologiesOpen)
+                            : undefined
+                        }
+                        className={`w-full lg:w-auto lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center uppercase font-bold focus:outline-none ${menuFont}`}
+                      >
+                        <i
+                          className={`lg:text-blueGray-200 text-blueGray-400 ${item.icon} text-lg leading-lg mr-2`}
+                        />
+                        {item.name}
+                        <i
+                          className={`fas fa-chevron-down ml-1 text-xs transition-transform duration-200 ${technologiesOpen && "rotate-180"
+                            }`}
+                        ></i>
+                      </button>
+                      <div
+                        className={`${technologiesOpen
+                            ? "block lg:opacity-100 lg:visible lg:translate-y-0"
+                            : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
+                          } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-0`}
+                      >
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/cloud-services"
+                          onClick={closeAllDropdowns}
+                        >
+                          Cloud Services
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/microsoft-technologies"
+                          onClick={closeAllDropdowns}
+                        >
+                          Microsoft Technologies
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/javascript-technologies"
+                          onClick={closeAllDropdowns}
+                        >
+                          Javascript Technologies
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/mobile-app-development"
+                          onClick={closeAllDropdowns}
+                        >
+                          Mobile App Development
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/devops"
+                          onClick={closeAllDropdowns}
+                        >
+                          DevOps
+                        </Link>
+                        <Link
+                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
+                          to="/test-automation"
+                          onClick={closeAllDropdowns}
+                        >
+                          Test Automation
+                        </Link>
+                      </div>
+                    </div>
+                  )
                 ) : (
+                  // Plain menu item
                   <Link
-                    className="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 lg:-mt-2 flex items-center text-sm uppercase font-bold focus:outline-none"
+                    className={`lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 lg:-mt-2 flex items-center uppercase font-bold focus:outline-none ${menuFont}`}
                     to={item.path}
                     onClick={closeAllDropdowns}
                   >

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
@@ -29,12 +29,23 @@ import Javascript from "pages/Technologies/Javascript";
 import MobileAppDevelopment from "pages/Technologies/MobileAppDevelopment";
 import Deveops from "pages/Technologies/Deveops";
 import TestAutomation from "pages/Technologies/TestAutomation";
+import Webdevelopment from 'pages/Itservices/Webdevelopment'
 
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 ReactDOM.render(
   <BrowserRouter>
+    <ScrollToTop />
     <Switch>
       <Route path="/" exact component={Landing} />
       <Route path="/about-us" exact component={About} />
@@ -53,6 +64,7 @@ ReactDOM.render(
       <Route path="/mobile-app-development" exact component={MobileAppDevelopment} />
       <Route path="/devops" exact component={Deveops} />
       <Route path="/test-automation" exact component={TestAutomation} />
+      <Route path="/web-development-services" exact component={Webdevelopment} />
 
       {/* <Redirect from="*" to="/" /> */}
     </Switch>
