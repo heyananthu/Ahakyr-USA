@@ -30,6 +30,18 @@ import MobileAppDevelopment from "pages/Technologies/MobileAppDevelopment";
 import Deveops from "pages/Technologies/Deveops";
 import TestAutomation from "pages/Technologies/TestAutomation";
 import Webdevelopment from 'pages/Itservices/Webdevelopment'
+import CustomSoftwareDevelopment from './pages/Itservices/CustomSoftwareDevelopment'
+import SoftwareProductDevelopment from "pages/Itservices/SoftwareProductDevelopment";
+import MobileAppDevelopmentServices from "pages/Itservices/MobileAppDevelopment";
+import SoftwareTesting from "pages/Itservices/SoftwareTesting";
+import UiUx from "pages/Itservices/UiUx";
+import Iot from "pages/Itservices/Iot";
+import DataAnalytics from "pages/Itservices/DataAnalytics";
+import Blockchain from "pages/Itservices/Blockchain";
+import AlMl from "pages/Itservices/AlMl";
+
+
+
 
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
@@ -65,6 +77,15 @@ ReactDOM.render(
       <Route path="/devops" exact component={Deveops} />
       <Route path="/test-automation" exact component={TestAutomation} />
       <Route path="/web-development-services" exact component={Webdevelopment} />
+      <Route path="/custom-software-development" extract component={CustomSoftwareDevelopment} />
+      <Route path="/software-product-development" exact component={SoftwareProductDevelopment} />
+      <Route path="/mobile-app-development-services" exact component={MobileAppDevelopmentServices} />
+      <Route path="/software-testing" exact component={SoftwareTesting} />
+      <Route path="/ui-ux-designing" exact component={UiUx} />
+      <Route path="/iot-solutions" exact component={Iot} />
+      <Route path="/data-analytics" exact component={DataAnalytics} />
+      <Route path="/blockchain" exact component={Blockchain} />
+      <Route path="/al-and-ml" exact component={AlMl} />
 
       {/* <Redirect from="*" to="/" /> */}
     </Switch>

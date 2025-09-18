@@ -165,41 +165,69 @@ export default function Navbar() {
                             >
                               Web Development
                             </Link>
-                            {/* <Link
+                            <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
-                              to="/staff-augmentation"
+                              to="/custom-software-development"
                               onClick={closeAllDropdowns}
                             >
-                              Staff Augmentation
+                              Custom Software Development Service
                             </Link>
                             <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
-                              to="/data-services"
+                              to="/software-product-development"
                               onClick={closeAllDropdowns}
                             >
-                              Data Services
+                              Software Product Development Service
                             </Link>
                             <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
-                              to="/call-center-services"
+                              to="/mobile-app-development-services"
                               onClick={closeAllDropdowns}
                             >
-                              Call Center Services
+                              Mobile app development 
                             </Link>
                             <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
-                              to="/revenue-cycle-management"
+                              to="/software-testing"
                               onClick={closeAllDropdowns}
                             >
-                              Revenue Cycle Management
+                              Software Testing Services
                             </Link>
                             <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
-                              to="/enterprise-resource-planning"
+                              to="/ui-ux-designing"
                               onClick={closeAllDropdowns}
                             >
-                              Enterprise Resource Planning
-                            </Link> */}
+                              UI/UX
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/al-and-ml"
+                              onClick={closeAllDropdowns}
+                            >
+                              AI & ML
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/iot-solutions"
+                              onClick={closeAllDropdowns}
+                            >
+                              IOT
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/blockchain"
+                              onClick={closeAllDropdowns}
+                            >
+                              blockchain
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/data-analytics"
+                              onClick={closeAllDropdowns}
+                            >
+                              Data Analytics
+                            </Link>
                           </div>
                         </div>
                         {/* Services direct links */}
