@@ -39,7 +39,10 @@ import Iot from "pages/Itservices/Iot";
 import DataAnalytics from "pages/Itservices/DataAnalytics";
 import Blockchain from "pages/Itservices/Blockchain";
 import AlMl from "pages/Itservices/AlMl";
-
+import DataEntryServices from "pages/DataServices/DataEntryServices";
+import DataAnnotation from "pages/DataServices/DataAnnotation";
+import ImageAnnotation from "pages/DataServices/ImageAnnotation";
+import SearchEngineOptimization from "pages/Seo/SearchEngineOptimization";
 
 
 
@@ -85,7 +88,11 @@ ReactDOM.render(
       <Route path="/iot-solutions" exact component={Iot} />
       <Route path="/data-analytics" exact component={DataAnalytics} />
       <Route path="/blockchain" exact component={Blockchain} />
-      <Route path="/al-and-ml" exact component={AlMl} />
+      <Route path="/ai-ml-development" exact component={AlMl} />
+      <Route path="/data-entry" exact component={DataEntryServices} />
+      <Route path="/data-annotation" exact component={DataAnnotation} />
+      <Route path="/image-annotation" exact component={ImageAnnotation} />
+      <Route path="/search-engine-optimization" exact component={SearchEngineOptimization} />
 
       {/* <Redirect from="*" to="/" /> */}
     </Switch>

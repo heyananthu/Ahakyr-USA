@@ -6,6 +6,7 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = React.useState(false);
   const [technologiesOpen, setTechnologiesOpen] = React.useState(false);
   const [itServicesOpen, setItServicesOpen] = React.useState(false);
+  const [dataServicesOpen, setDataServicesOpen] = React.useState(false);
 
   const [isMobile, setIsMobile] = React.useState(
     typeof window !== "undefined" ? window.innerWidth < 1024 : false
@@ -24,6 +25,7 @@ export default function Navbar() {
     setTechnologiesOpen(false);
     setNavbarOpen(false);
     setItServicesOpen(false);
+    setDataServicesOpen(false);
   };
 
   const menuItems = [
@@ -107,8 +109,8 @@ export default function Navbar() {
                       {/* Main Services Dropdown */}
                       <div
                         className={`${servicesOpen
-                            ? "block lg:opacity-100 lg:visible lg:translate-y-0"
-                            : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
+                          ? "block lg:opacity-100 lg:visible lg:translate-y-0"
+                          : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
                           } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-0`}
                       >
                         {/* IT Services Submenu Trigger */}
@@ -131,16 +133,16 @@ export default function Navbar() {
                             </Link>
                             {/* Toggle button visible only on mobile for submenu */}
                             {/* {isMobile && ( */}
-                              <button
-                                type="button"
-                                className="text-white px-3 py-3 hover:bg-gray-700"
-                                aria-label="Toggle IT Services submenu"
-                                onClick={() => setItServicesOpen(!itServicesOpen)}
-                              >
-                                <i
-                                  className={`fas fa-chevron-${itServicesOpen ? "up" : "down"}`}
-                                />
-                              </button>
+                            <button
+                              type="button"
+                              className="text-white px-3 py-3 hover:bg-gray-700"
+                              aria-label="Toggle IT Services submenu"
+                              onClick={() => setItServicesOpen(!itServicesOpen)}
+                            >
+                              <i
+                                className={`fas fa-chevron-${itServicesOpen ? "up" : "down"}`}
+                              />
+                            </button>
                             {/* )} */}
                           </div>
 
@@ -184,7 +186,7 @@ export default function Navbar() {
                               to="/mobile-app-development-services"
                               onClick={closeAllDropdowns}
                             >
-                              Mobile app development 
+                              Mobile app development
                             </Link>
                             <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
@@ -202,7 +204,7 @@ export default function Navbar() {
                             </Link>
                             <Link
                               className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
-                              to="/al-and-ml"
+                              to="/ai-ml-development"
                               onClick={closeAllDropdowns}
                             >
                               AI & ML
@@ -238,13 +240,75 @@ export default function Navbar() {
                         >
                           Staff Augmentation
                         </Link>
-                        <Link
-                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
-                          to="/data-services"
-                          onClick={closeAllDropdowns}
+                        <div
+                          className="relative group"
+                          onMouseEnter={
+                            !isMobile ? () => setDataServicesOpen(true) : undefined
+                          }
+                          onMouseLeave={
+                            !isMobile ? () => setDataServicesOpen(false) : undefined
+                          }
                         >
-                          Data Services
-                        </Link>
+                          <div className="flex justify-between items-center w-full">
+                            <Link
+                              to="/services"
+                              className="block text-white py-3 px-4 hover:bg-gray-700 hover:text-blue-300 font-medium flex-grow"
+                              onClick={closeAllDropdowns}
+                            >
+                              Data Services
+                            </Link>
+                            {/* Toggle button visible only on mobile for submenu */}
+                            {/* {isMobile && ( */}
+                            <button
+                              type="button"
+                              className="text-white px-3 py-3 hover:bg-gray-700"
+                              aria-label="Toggle Data Services submenu"
+                              onClick={() => setDataServicesOpen(!dataServicesOpen)}
+                            >
+                              <i
+                                className={`fas fa-chevron-${dataServicesOpen ? "up" : "down"}`}
+                              />
+                            </button>
+                            {/* )} */}
+                          </div>
+
+
+                          {/* IT SERVICES SUBMENU */}
+                          <div
+                            className={
+                              isMobile
+                                ? `${dataServicesOpen ? "block" : "hidden"} w-full bg-gray-700 rounded-b-md`
+                                : `absolute top-0 right-full ${dataServicesOpen ? "block lg:opacity-100 lg:visible" : "hidden lg:opacity-0 lg:invisible"
+                                } w-64 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 font-medium`
+                            }
+                            style={isMobile ? {} : { minWidth: "16rem" }}
+                            // Fix: keep submenu open when mouse is over it
+                            onMouseEnter={!isMobile ? () => setDataServicesOpen(true) : undefined}
+                            onMouseLeave={!isMobile ? () => setDataServicesOpen(false) : undefined}
+                          >
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/data-entry"
+                              onClick={closeAllDropdowns}
+                            >
+                              Data Entry Services
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/data-annotation"
+                              onClick={closeAllDropdowns}
+                            >
+                              Data Annotation
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/image-annotation"
+                              onClick={closeAllDropdowns}
+                            >
+                              Image Annotation Service
+                            </Link>
+                          </div>
+                        </div>
                         <Link
                           className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
                           to="/call-center-services"
@@ -312,8 +376,8 @@ export default function Navbar() {
                       </button>
                       <div
                         className={`${technologiesOpen
-                            ? "block lg:opacity-100 lg:visible lg:translate-y-0"
-                            : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
+                          ? "block lg:opacity-100 lg:visible lg:translate-y-0"
+                          : "hidden lg:opacity-0 lg:invisible lg:translate-y-2"
                           } w-full lg:w-72 bg-gray-800 rounded-lg shadow-xl z-[9999] transition-all duration-200 ease-out lg:absolute lg:top-full lg:left-0 lg:mt-0`}
                       >
                         <Link
