@@ -43,6 +43,8 @@ import DataEntryServices from "pages/DataServices/DataEntryServices";
 import DataAnnotation from "pages/DataServices/DataAnnotation";
 import ImageAnnotation from "pages/DataServices/ImageAnnotation";
 import SearchEngineOptimization from "pages/Seo/SearchEngineOptimization";
+import SocialMediaMarketing from "pages/Seo/SocialMediaMarketing";
+import PerformenceMarketing from "pages/Seo/PerformenceMarketing";
 
 
 
@@ -93,6 +95,8 @@ ReactDOM.render(
       <Route path="/data-annotation" exact component={DataAnnotation} />
       <Route path="/image-annotation" exact component={ImageAnnotation} />
       <Route path="/search-engine-optimization" exact component={SearchEngineOptimization} />
+      <Route path="/social-media-marketing" exact component={SocialMediaMarketing} />
+      <Route path="/performance-marketing" exact component={PerformenceMarketing} />
 
       {/* <Redirect from="*" to="/" /> */}
     </Switch>

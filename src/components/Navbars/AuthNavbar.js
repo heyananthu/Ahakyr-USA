@@ -7,6 +7,8 @@ export default function Navbar() {
   const [technologiesOpen, setTechnologiesOpen] = React.useState(false);
   const [itServicesOpen, setItServicesOpen] = React.useState(false);
   const [dataServicesOpen, setDataServicesOpen] = React.useState(false);
+  const [seoOpen, setSeoOpen] = React.useState(false);
+
 
   const [isMobile, setIsMobile] = React.useState(
     typeof window !== "undefined" ? window.innerWidth < 1024 : false
@@ -337,13 +339,75 @@ export default function Navbar() {
                         >
                           IT Infrastructure and Management
                         </Link>
-                        <Link
-                          className={`block py-3 px-4 text-white hover:bg-gray-700 hover:text-blue-300 font-medium ${menuFont}`}
-                          to="/seo-digital-marketing"
-                          onClick={closeAllDropdowns}
+                        <div
+                          className="relative group"
+                          onMouseEnter={
+                            !isMobile ? () => setSeoOpen(true) : undefined
+                          }
+                          onMouseLeave={
+                            !isMobile ? () => setSeoOpen(false) : undefined
+                          }
                         >
-                          SEO & Digital Marketing
-                        </Link>
+                          <div className="flex justify-between items-center w-full">
+                            <Link
+                              to="/services"
+                              className="block text-white py-3 px-4 hover:bg-gray-700 hover:text-blue-300 font-medium flex-grow"
+                              onClick={closeAllDropdowns}
+                            >
+                              SEO & Digital Marketing
+                            </Link>
+                            {/* Toggle button visible only on mobile for submenu */}
+                            {/* {isMobile && ( */}
+                            <button
+                              type="button"
+                              className="text-white px-3 py-3 hover:bg-gray-700"
+                              aria-label="Toggle Data Services submenu"
+                              onClick={() => setSeoOpen(!seoOpen)}
+                            >
+                              <i
+                                className={`fas fa-chevron-${seoOpen ? "up" : "down"}`}
+                              />
+                            </button>
+                            {/* )} */}
+                          </div>
+
+
+                          {/* IT SERVICES SUBMENU */}
+                          <div
+                            className={
+                              isMobile
+                                ? `${seoOpen ? "block" : "hidden"} w-full bg-gray-700 rounded-b-md`
+                                : `absolute top-0 right-full ${seoOpen ? "block lg:opacity-100 lg:visible" : "hidden lg:opacity-0 lg:invisible"
+                                } w-64 bg-gray-800 rounded-lg shadow-xl z-[10000] transition-all duration-200 font-medium`
+                            }
+                            style={isMobile ? {} : { minWidth: "16rem" }}
+                            // Fix: keep submenu open when mouse is over it
+                            onMouseEnter={!isMobile ? () => setSeoOpen(true) : undefined}
+                            onMouseLeave={!isMobile ? () => setSeoOpen(false) : undefined}
+                          >
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/search-engine-optimization"
+                              onClick={closeAllDropdowns}
+                            >
+                              Search Engine Optimization
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/social-media-marketing"
+                              onClick={closeAllDropdowns}
+                            >
+                              Social Media Marketing
+                            </Link>
+                            <Link
+                              className={`block py-2 px-4 text-white hover:bg-gray-700 hover:text-blue-300 text-sm ${menuFont}`}
+                              to="/performance-marketing"
+                              onClick={closeAllDropdowns}
+                            >
+                              Performance Marketing
+                            </Link>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ) : (
